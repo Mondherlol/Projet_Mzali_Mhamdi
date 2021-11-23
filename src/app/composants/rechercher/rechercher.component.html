@@ -1,0 +1,23 @@
+<app-top></app-top>
+
+<div class="row featured__filter t" >
+
+
+<div *ngFor="let v of Voyages" class="col-lg-3 col-md-4 col-sm-6 mix {{v.categorie}} ">
+
+    <div class="card" style="width: 85%">
+        <div class="img-hover-zoom c"> <img [src]="v.Image" class="card-img-top" [alt]="v.libelle"> </div>
+        <div class="card-body">
+            <h5 class="card-title">{{v.id}} {{v.libelle}}</h5>
+            <p class="card-text">{{v.Description}}</p>
+            <a  [routerLink]="['/reservation',v.id]"                         class="btn btn-primary">Réserver</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<div *ngIf="Voyages.length==0" style="text-align: center;">
+    <h1>Aucun résultat n'a été trouvé. :(</h1>
+    <p>Essayez avec un autre mot clé.</p>
+</div>
+<app-footer></app-footer>

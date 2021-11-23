@@ -1,0 +1,22 @@
+
+    <app-top></app-top>
+
+
+<app-carousel></app-carousel>
+
+
+
+<span ng-init="afficher()"></span>
+<button (click)="topFunction()" id="gotoTop" title="Go to top" style="display: block;" *ngIf="scroll">
+    <div class="page-top-wrapper">
+        <img class="page-top-label-icon" alt="" src="https://asset.japan.travel/image/upload/v1515559927/static/svg/common/arrow_up_white.svg" width="15" height="15"><br>
+        <span class="page-top-label">REMONTER</span>
+    </div>
+</button>
+ 
+<app-liste-regions></app-liste-regions>
+<app-features></app-features>
+<app-footer>
+</app-footer>
+
+<!-- Hamdoulah -->

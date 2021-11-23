@@ -1,0 +1,15 @@
+#gotoTop{
+    justify-content: center;
+    position:fixed;
+    bottom: 30px;
+    right:30px;
+    background:#e7011e;
+    font-size: .65rem;
+    font-weight: 700;
+    width: 65px;
+    height: 65px;
+    border-radius: 40px;
+    cursor:pointer;
+    color: white;
+    border: none;
+}

@@ -1,0 +1,14 @@
+
+.contenant {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.texte_centrer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

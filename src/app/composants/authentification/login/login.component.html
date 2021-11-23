@@ -1,0 +1,18 @@
+<div id="container" style="background-image: url('assets/waljapon.jpg')">
+    <i class="bi bi-lock-fill"></i>
+    <br><br>
+    <div class="d-flex justify-content-center">
+
+        <input type="mail" name="adresse" class="form-control" placeholder="Adresse" #adresse />
+    </div>
+    <br />
+    <div class="d-flex justify-content-center">
+        <input type="password" name="mdp" class="form-control" placeholder="Mot de passe" #mdp />
+    </div>
+    <br />
+
+    <button type="button" class="btn btn-secondary btn-lg" (click)="connecter(adresse.value,mdp.value)">Se connecter</button>
+    <br />
+    <br>
+    <a href="/signup" class="link-dark"> Vous n'avez pas de compte ? S'inscrire</a>
+</div>

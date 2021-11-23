@@ -1,0 +1,19 @@
+#container {
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    padding: 15vh;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 25vw;
+}
+
+button {
+    border-radius: 15px;
+}
+
+i {
+    zoom: 3;
+}
