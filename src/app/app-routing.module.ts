@@ -7,6 +7,7 @@ import { ErrorComponent } from './composants/error/error.component';
 import { ReservationComponent } from './composants/reservation/reservation.component';
 import { RechercherComponent } from './composants/rechercher/rechercher.component';
 import { AboutusComponent } from './composants/aboutus/aboutus.component';
+import { AdminComponent } from './composants/admin/admin.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path : 'rechercher', component : RechercherComponent},
   { path : 'rechercher/:motcle',component:RechercherComponent},
   {path : 'aboutus', component:AboutusComponent},
+  {path : 'admin', component:AdminComponent},
   {path:'reservation/:id',component:ReservationComponent},
   {path:'', redirectTo:'accueil', pathMatch:'full'},
   {path:'**', component:ErrorComponent},

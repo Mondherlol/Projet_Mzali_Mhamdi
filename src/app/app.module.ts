@@ -18,6 +18,8 @@ import { ListeRegionsComponent } from './composants/accueil/liste-regions/liste-
 import { FeaturesComponent } from './composants/accueil/features/features.component';
 import { RechercherComponent } from './composants/rechercher/rechercher.component';
 import { AboutusComponent } from './composants/aboutus/aboutus.component';
+import { MapComponent } from './composants/accueil/map/map.component';
+import { AdminComponent } from './composants/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AboutusComponent } from './composants/aboutus/aboutus.component';
     FeaturesComponent,
     RechercherComponent,
     AboutusComponent,
+    MapComponent,
+    AdminComponent,
    
   ],
   imports: [
