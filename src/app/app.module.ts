@@ -20,6 +20,11 @@ import { RechercherComponent } from './composants/rechercher/rechercher.componen
 import { AboutusComponent } from './composants/aboutus/aboutus.component';
 import { MapComponent } from './composants/accueil/map/map.component';
 import { AdminComponent } from './composants/admin/admin.component';
+import { DecouvrirComponent } from './composants/accueil/decouvrir/decouvrir.component';
+import { MeilleuresDestinationsComponent } from './composants/decouvrir/meilleures-destinations/meilleures-destinations.component';
+import { NourritureComponent } from './composants/decouvrir/nourriture/nourriture.component';
+import { ActivitesComponent } from './composants/decouvrir/activites/activites.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { AdminComponent } from './composants/admin/admin.component';
     AboutusComponent,
     MapComponent,
     AdminComponent,
+    DecouvrirComponent,
+    MeilleuresDestinationsComponent,
+    NourritureComponent,
+    ActivitesComponent,
+  
    
   ],
   imports: [

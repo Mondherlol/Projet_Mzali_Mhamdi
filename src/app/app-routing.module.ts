@@ -8,6 +8,10 @@ import { ReservationComponent } from './composants/reservation/reservation.compo
 import { RechercherComponent } from './composants/rechercher/rechercher.component';
 import { AboutusComponent } from './composants/aboutus/aboutus.component';
 import { AdminComponent } from './composants/admin/admin.component';
+import { ListeRegionsComponent } from './composants/accueil/liste-regions/liste-regions.component';
+import { ActivitesComponent } from './composants/decouvrir/activites/activites.component';
+import { NourritureComponent } from './composants/decouvrir/nourriture/nourriture.component';
+import { MeilleuresDestinationsComponent } from './composants/decouvrir/meilleures-destinations/meilleures-destinations.component';
 
 
 const routes: Routes = [
@@ -19,7 +23,11 @@ const routes: Routes = [
   { path : 'rechercher/:motcle',component:RechercherComponent},
   {path : 'aboutus', component:AboutusComponent},
   {path : 'admin', component:AdminComponent},
+  {path : 'Region',component:ListeRegionsComponent},
   {path:'reservation/:id',component:ReservationComponent},
+  {path:'activites',component:ActivitesComponent},
+  {path:'plats',component:NourritureComponent},
+  {path:'meilleures-destinations',component:MeilleuresDestinationsComponent},
   {path:'', redirectTo:'accueil', pathMatch:'full'},
   {path:'**', component:ErrorComponent},
   
