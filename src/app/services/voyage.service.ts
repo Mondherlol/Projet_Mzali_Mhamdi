@@ -41,7 +41,9 @@ export class VoyageService {
     getVoyageByMotCle(motcle:string){
       return (this.Voyage.filter(i=>(i.libelle.toLowerCase().includes(motcle.toLowerCase()))||(i.categorie.toLowerCase()==motcle.toLowerCase()) ||(i.Description.toLowerCase().includes(motcle.toLowerCase()) )));
     }
-   
+   getVoyageByCategorie(motcle:String){
+     return (this.Voyage.filter(i=>(i.categorie==motcle)));
+   }
   
   constructor() { }
  

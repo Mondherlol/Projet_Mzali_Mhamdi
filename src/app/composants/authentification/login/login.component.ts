@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
    request = new XMLHttpRequest();
 
 connecter ( ad:string, mdp:string){
-  if (ad=="mondher" && mdp=="lol123"){
+  if (ad=='Mondher' && mdp=="lol123"){
     this.router.navigate(['/admin']);
   }
     else {

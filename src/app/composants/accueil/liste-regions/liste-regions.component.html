@@ -1,4 +1,5 @@
 <app-top></app-top>
+<br>
 <section class="featured spad">
     <div class="container">
         <div class="row">
@@ -8,11 +9,11 @@
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="*">Tout</li>
-                        <li data-filter=".Traditionnelle">Traditionnelle</li>
-                        <li data-filter=".Paradisiaque">Paradisiaque</li>
-                        <li data-filter=".Touristique">Touristique</li>
-                        <li data-filter=".Historique">Historique</li>
+                        <li class="active" (click)="filtrer('Tout')" [ngClass]="{'active':Actif=='Tout' }">Tout</li>
+                        <li (click)="filtrer('Traditionnelle')" [ngClass]="{'active':Actif=='Traditionnelle' }">Traditionnelle</li>
+                        <li (click)="filtrer('Paradisiaque')" [ngClass]="{'active':Actif=='Paradisiaque' }">Paradisiaque</li>
+                        <li  (click)="filtrer('Touristique')" [ngClass]="{'active':Actif=='Touristique' }">Touristique</li>
+                        <li (click)="filtrer('Historique')" [ngClass]="{'active':Actif=='Historique' }">Historique</li>
                     </ul>
                 </div>
             </div>
