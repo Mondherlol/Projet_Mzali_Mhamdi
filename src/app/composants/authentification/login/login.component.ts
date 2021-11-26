@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  
   constructor(private router:Router,private _snackBar: MatSnackBar ) {}
+  // sarra
+  // user= new User();
+  // onLoggedin(){
+  // console.log(this.user);
+  //   }
+
 
   ngOnInit(): void {}
 
@@ -60,4 +68,5 @@ connecter ( ad:string, mdp:string){
   //   console.log(ad + mdp);
   // }
  
+
 }
