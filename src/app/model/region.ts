@@ -4,6 +4,7 @@ export class Region {
         public nom?:string,
         public prix?:number,
         public Description?:string,
+        public DescriptionDetaillee?:string,
         public img?:string
      
     ){}
