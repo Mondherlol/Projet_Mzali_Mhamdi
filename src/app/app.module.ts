@@ -24,6 +24,8 @@ import { DecouvrirComponent } from './composants/accueil/decouvrir/decouvrir.com
 import { MeilleuresDestinationsComponent } from './composants/decouvrir/meilleures-destinations/meilleures-destinations.component';
 import { NourritureComponent } from './composants/decouvrir/nourriture/nourriture.component';
 import { ActivitesComponent } from './composants/decouvrir/activites/activites.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { ActivitesComponent } from './composants/decouvrir/activites/activites.c
     BrowserAnimationsModule,
     MatSnackBarModule,
     MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
  
   ],
   providers: [],

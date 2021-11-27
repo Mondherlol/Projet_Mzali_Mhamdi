@@ -5,7 +5,8 @@ export class Region {
         public prix?:number,
         public Description?:string,
         public DescriptionDetaillee?:string,
-        public img?:string
+        public img?:string,
+        public activites?:string[],
      
     ){}
 }

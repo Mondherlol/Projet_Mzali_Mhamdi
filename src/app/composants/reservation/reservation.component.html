@@ -9,11 +9,41 @@
 
  
 
-  <div> <p>{{Region.Description}}</p> </div>
+  <div> <h3 >{{Region.Description}}</h3> </div>
   <p>{{Region.DescriptionDetaillee}}</p>
 
-<form>
-  
+<form #f="ngForm" style=" display:flex; margin:auto; width: 25%; "class="card"   (ngSubmit)="onSubmit()">
+  <label>Date de Départ</label><input type="date" required > <br>
+  <label>Date de Retour</label><input type="date" required> <br>
+  <label>Nombre d'adultes :</label>
+  <select required>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select><br>
+  <label>Nombre d'enfants :</label>
+  <select required>
+    <option selected>0</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option> 
+    <option>5</option>
+    <option>6</option>
+  </select>
+<span>2 à 12 ans</span><br>
+<div style="display: block;">
+<label>Type d'Hébergement :</label>
+<input type="radio" name="Hebergement" id="Hotel" required><label for="Hotel">Hôtel</label>
+<input type="radio" name="Hebergement" id="Auberge" required><label for="Auberge">Auberge</label>
+</div>
+<label>Sélectionnez les activtiés que vous souhaitez faire :</label>
+<div *ngFor="let a of Region.activites">
+<input type="checkbox" [id]="a"> <label [for]="a">{{a}}</label>
+</div>
+<input type="submit" name="Réserver"  [disabled]="f.invalid">
+
 </form>
 
   <!-- ON A BESOIN DE :
