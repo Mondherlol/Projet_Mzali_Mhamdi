@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Voyage } from 'src/app/model/voyage';
+import { VoyageService } from 'src/app/services/voyage.service';
 
 @Component({
   selector: 'app-map',
@@ -6,19 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  image:String="";
-  nom:String="";
-  description:String="";
-test(){
+  v:number=0;
+  Voyages:Voyage[];
+  image:string="assets/japanflag.jpg";
+  nom:string="Sélectionnez une Région";
+  description:string="Veuillez sélectionner une région sur la map ci-contre.";
+afficherRegion(i:number){
 
-  this.image="assets/Kansai.jpg";
-  this.nom="Kansai";
-  this.description="C'est une très belle région.";
+  this.image=this.Voyages[i].Image;
+  this.nom=this.Voyages[i].libelle;
+  this.description=this.Voyages[i].Description;
+  this.v=this.Voyages[i].id;
 }
 
-  constructor() { }
-
+  constructor(private voyageService:VoyageService) { }
   ngOnInit(): void {
+    this.Voyages=this.voyageService.getVoyage();
   }
 
 }

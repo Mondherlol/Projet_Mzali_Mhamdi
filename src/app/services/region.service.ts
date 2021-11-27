@@ -6,7 +6,7 @@ import { Region } from '../model/region';
 })
 export class RegionService {
   private region:Region[]=[
-    new Region(1,"Hokkaido",6000,"Hokkaido est une jolie ville.","assets/caroussel/c (1).jpg")
+    new Region(1,"Hokkaido",6000,"Hokkaido est une jolie ville.","assets/Hokkaido/1.jpg")
   ];
   getRegion(){
     return this.region;

@@ -1,4 +1,9 @@
 path:hover {
     cursor: pointer;
-
+    /* fill:red!important; */
+}
+.gras {
+    font-weight: bold;
+    font-size:15px;
+    color:white;
 }
