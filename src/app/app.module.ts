@@ -26,6 +26,8 @@ import { NourritureComponent } from './composants/decouvrir/nourriture/nourritur
 import { ActivitesComponent } from './composants/decouvrir/activites/activites.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { PrixDTPipe } from './prix-dt.pipe';
+
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { FormsModule } from '@angular/forms';
     MeilleuresDestinationsComponent,
     NourritureComponent,
     ActivitesComponent,
+    PrixDTPipe,
+
   
    
   ],
