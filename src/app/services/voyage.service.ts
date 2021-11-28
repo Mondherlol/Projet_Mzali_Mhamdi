@@ -44,6 +44,9 @@ export class VoyageService {
    getVoyageByCategorie(motcle:String){
      return (this.Voyage.filter(i=>(i.categorie==motcle)));
    }
+   ajouterVoyage( voy:Voyage){
+    this.Voyage.push(voy);
+  }
   
 supprimerVoyage( voy:Voyage){
   //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
