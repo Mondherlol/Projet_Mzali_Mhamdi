@@ -76,6 +76,8 @@ import { PolitiqueComponent } from './composants/supplementaire/politique/politi
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+
+
  
   ],
   providers: [],

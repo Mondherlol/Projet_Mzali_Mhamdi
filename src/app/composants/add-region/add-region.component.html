@@ -81,11 +81,16 @@
         <div class="col-sm-2 col-md-2 col-lg-2">
             <label>Description Détaillée</label>
             <input type="text" [(ngModel)]="newRegion.DescriptionDetaillee" name="DescriptionDetaillee" class="form-control" />
-
         </div>
+
         
         <div class="mt-2">
             <button type="submit" (click)="addVoyage()" class="btn btn-success">Ajouter</button>
+            <!-- <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div> -->
         </div>
         <h3>{{msg}}</h3>
     </form>
