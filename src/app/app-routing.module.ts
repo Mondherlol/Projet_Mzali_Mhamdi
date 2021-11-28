@@ -12,6 +12,9 @@ import { ListeRegionsComponent } from './composants/accueil/liste-regions/liste-
 import { ActivitesComponent } from './composants/decouvrir/activites/activites.component';
 import { NourritureComponent } from './composants/decouvrir/nourriture/nourriture.component';
 import { MeilleuresDestinationsComponent } from './composants/decouvrir/meilleures-destinations/meilleures-destinations.component';
+import { AddRegionComponent } from './composants/add-region/add-region.component';
+import { RegionComponent } from './composants/region/region.component';
+import { UpdateRegionComponent } from './composants/update-region/update-region.component';
 
 
 const routes: Routes = [
@@ -23,7 +26,10 @@ const routes: Routes = [
   { path : 'rechercher/:motcle',component:RechercherComponent},
   {path : 'aboutus', component:AboutusComponent},
   {path : 'admin', component:AdminComponent},
-  {path : 'Region',component:ListeRegionsComponent},
+  {path : 'listeRegion',component:ListeRegionsComponent},
+  {path : 'addRegion',component:AddRegionComponent},
+  {path : 'Region',component: RegionComponent},
+  {path : 'UpdateRegion/:id',component: UpdateRegionComponent},
   {path:'reservation/:id',component:ReservationComponent},
   {path:'activites',component:ActivitesComponent},
   {path:'plats',component:NourritureComponent},

@@ -12,7 +12,6 @@ import { FooterComponent } from './composants/accueil/footer/footer.component';
 import { TopComponent } from './composants/accueil/top/top.component';
 import { CarouselComponent } from './composants//accueil/carousel/carousel.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { ErrorComponent } from './composants/error/error.component';
 import { ReservationComponent } from './composants/reservation/reservation.component';
 import { ListeRegionsComponent } from './composants/accueil/liste-regions/liste-regions.component';
 import { FeaturesComponent } from './composants/accueil/features/features.component';
@@ -27,6 +26,11 @@ import { ActivitesComponent } from './composants/decouvrir/activites/activites.c
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { PrixDTPipe } from './prix-dt.pipe';
+import { AddRegionComponent } from './composants/add-region/add-region.component';
+import { RegionComponent } from './composants/region/region.component';
+import { UpdateRegionComponent } from './composants/update-region/update-region.component';
+
+
 
 
 
@@ -51,6 +55,11 @@ import { PrixDTPipe } from './prix-dt.pipe';
     NourritureComponent,
     ActivitesComponent,
     PrixDTPipe,
+    AddRegionComponent,
+    RegionComponent,
+    UpdateRegionComponent,
+
+   
 
   
    
