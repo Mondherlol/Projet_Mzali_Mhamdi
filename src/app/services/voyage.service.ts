@@ -45,6 +45,13 @@ export class VoyageService {
      return (this.Voyage.filter(i=>(i.categorie==motcle)));
    }
   
+supprimerVoyage( voy:Voyage){
+  //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
+   const index = this. Voyage.indexOf(voy, 0);
+   if (index > -1) {
+     this. Voyage.splice(index, 1);
+   }
+  }
   constructor() { }
  
 }

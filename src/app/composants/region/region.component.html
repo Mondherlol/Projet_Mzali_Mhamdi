@@ -1,4 +1,7 @@
-<div class="container">
+
+<br>
+<br>
+<!-- <div class="container">
     <div class="card shadow mb-4">
         <div class="card-body">
             <table class="table table-striped">
@@ -7,7 +10,7 @@
                     <th>Nom</th>
                     <th>Prix</th>
                     <th>Description</th>
-                    <th>DescriptionDetaillee</th>
+                    <th>Description Détaillée</th>
                     <th>img</th>
                     <th>activites</th>
                 </tr>
@@ -19,9 +22,45 @@
                         <td>{{r.Description}}</td>
                         <td>{{r.DescriptionDetaillee}}</td>
                         <td>{{r.img}}</td>
-                        <td>{{r.activites}}</td>
+                        <td> <ul >
+                            <li *ngFor="let a of r.activites">{{a}}</li>
+                           </ul>
+                        </td>
                         <td><a class="btn btn-danger" (click)="supprimerRegion(r)">Supprimer</a></td>
                         <td><a class="btn btn-success" [routerLink]="['/ModifierRegion',r.id]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Libelle</th>
+                    <th>Prix</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Promo</th>
+                    <th>Catégorie</th>
+                </tr>
+                <tbody *ngFor="let v of voyage">
+                    <tr>
+                        <td>{{v.id}}</td>
+                        <td>{{v.libelle}}</td>
+                        <td>{{v.prix}}</td>
+                        <td width="30%">{{v.Description}}</td>
+                        <td>{{v.Image}}</td>
+                        <td *ngIf="v.Promo;else Non">Oui</td>
+                        <ng-template #Non><td>Non</td></ng-template>
+                        <td>{{v.categorie}}</td>
+                        
+                        <td><a class="btn btn-danger" (click)="supprimerVoyage(v)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/ModifierRegion',v.id]">Modifier</a></td>
                     </tr>
                 </tbody>
             </table>

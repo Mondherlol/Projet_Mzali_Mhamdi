@@ -29,6 +29,8 @@ import { PrixDTPipe } from './prix-dt.pipe';
 import { AddRegionComponent } from './composants/add-region/add-region.component';
 import { RegionComponent } from './composants/region/region.component';
 import { UpdateRegionComponent } from './composants/update-region/update-region.component';
+import { ConditionsDUtilisationsComponent } from './composants/supplementaire/conditions-d-utilisations/conditions-d-utilisations.component';
+import { PolitiqueComponent } from './composants/supplementaire/politique/politique.component';
 
 
 
@@ -58,6 +60,8 @@ import { UpdateRegionComponent } from './composants/update-region/update-region.
     AddRegionComponent,
     RegionComponent,
     UpdateRegionComponent,
+    ConditionsDUtilisationsComponent,
+    PolitiqueComponent,
 
    
 

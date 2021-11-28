@@ -15,6 +15,8 @@ import { MeilleuresDestinationsComponent } from './composants/decouvrir/meilleur
 import { AddRegionComponent } from './composants/add-region/add-region.component';
 import { RegionComponent } from './composants/region/region.component';
 import { UpdateRegionComponent } from './composants/update-region/update-region.component';
+import { ConditionsDUtilisationsComponent } from './composants/supplementaire/conditions-d-utilisations/conditions-d-utilisations.component';
+import { PolitiqueComponent } from './composants/supplementaire/politique/politique.component';
 
 
 const routes: Routes = [
@@ -26,14 +28,16 @@ const routes: Routes = [
   { path : 'rechercher/:motcle',component:RechercherComponent},
   {path : 'aboutus', component:AboutusComponent},
   {path : 'admin', component:AdminComponent},
-  {path : 'listeRegion',component:ListeRegionsComponent},
+  {path : 'Region',component:ListeRegionsComponent},
   {path : 'addRegion',component:AddRegionComponent},
-  {path : 'Region',component: RegionComponent},
+  {path : 'modifierRegion',component: RegionComponent},
   {path : 'UpdateRegion/:id',component: UpdateRegionComponent},
   {path:'reservation/:id',component:ReservationComponent},
   {path:'activites',component:ActivitesComponent},
   {path:'plats',component:NourritureComponent},
   {path:'meilleures-destinations',component:MeilleuresDestinationsComponent},
+  {path:'conditions-d-utilisations',component:ConditionsDUtilisationsComponent},
+  {path:'politique',component:PolitiqueComponent},
   {path:'', redirectTo:'accueil', pathMatch:'full'},
   {path:'**', component:ErrorComponent},
   
