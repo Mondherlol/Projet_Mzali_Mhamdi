@@ -1,1 +1,101 @@
-<p>update-region works!</p>
+<app-top></app-top>
+<br><br><br>
+<!-- <div class="container">
+    <div>
+        <h2>Ajouter un Region</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>id Region</label>
+            <input type="text" name="id" [(ngModel)]="newRegion.id" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Region</label>
+            <input type="text" [(ngModel)]="newRegion.nom" name="nom" class="form-control" />
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Region</label>
+            <input type="number" [(ngModel)]="newRegion.prix" name="prix" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Description</label>
+            <input type="text" [(ngModel)]="newRegion.Description" name="Description" class="form-control" />
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>DescriptionDetaillee</label>
+            <input type="text" [(ngModel)]="newRegion.DescriptionDetaillee" name="DescriptionDetaillee" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <img [src]="" alt="" />
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>activites</label>
+            <input type="text" [(ngModel)]="newRegion.activites" name="activites" class="form-control" />
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="addRegion()" class="btn btn-success">Ajouter</button>
+        </div>
+        <h3>{{msg}}</h3>
+    </form>
+</div> -->
+
+<div class="container">
+    <div>
+        <h2>Ajouter une destination</h2>
+    </div>
+    <form>
+        <!-- <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>id Voyage</label>
+            <input type="text" name="id" [(ngModel)]="newVoyage.id" class="form-control" />
+        </div> -->
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Libelle Voyage</label>
+            <input type="text" [(ngModel)]="newVoyage.libelle" name="nom" class="form-control" />
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Region</label>
+            <input type="number" [(ngModel)]="newVoyage.prix" name="prix" class="form-control" />
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Description</label>
+            <input type="text" [(ngModel)]="newVoyage.Description" name="Description" class="form-control" />
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Image URL</label>
+            <input type="text" [(ngModel)]="newVoyage.Image" name="Image" class="form-control" />
+        </div>
+
+
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Promo</label>
+            <input type="checkbox" [(ngModel)]="newVoyage.Promo" name="Promo" class="form-control"/>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Categorie</label>
+            <input type="text" [(ngModel)]="newVoyage.categorie" name="Categorie" class="form-control" />
+
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Description Region</label>
+            <input type="text" [(ngModel)]="newRegion.Description" name="Description" class="form-control" />
+
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Description Détaillée</label>
+            <input type="text" [(ngModel)]="newRegion.DescriptionDetaillee" name="DescriptionDetaillee" class="form-control" />
+        </div>
+
+        
+        <div class="mt-2">
+            <button type="submit" (click)="addVoyage()" class="btn btn-success">Ajouter</button>
+            <!-- <div class="example-button-container">
+                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div> -->
+        </div>
+        <h3>{{msg}}</h3>
+    </form>
+    {{newRegion|json}}
+</div>
