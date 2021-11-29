@@ -2,6 +2,8 @@ import { RegionService } from 'src/app/services/region.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Region } from 'src/app/model/region';
+import { Voyage } from 'src/app/model/voyage';
+import { VoyageService } from 'src/app/services/voyage.service';
 
 @Component({
   selector: 'app-update-region',
@@ -10,13 +12,22 @@ import { Region } from 'src/app/model/region';
 })
 export class UpdateRegionComponent implements OnInit {
 currentRegion= new Region();
-  
-  constructor(private activatedRoute:ActivatedRoute,private regionService:RegionService) { 
+newRegion=new Region();
+V : Voyage [];
+newVoyage=new Voyage();
+id:number=0;
+msg : string;
+
+
+  constructor(private activatedRoute:ActivatedRoute,private regionService:RegionService,private voyageService:VoyageService) { 
 
   }
-
+ 
   ngOnInit(): void {
   console.log(this.activatedRoute.snapshot.params.id);
+    this.newVoyage=this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id);
+    this.newRegion=this.regionService.getRegionById(this.activatedRoute.snapshot.params.id);
+    console.log(this.newVoyage);
   }
 
 }

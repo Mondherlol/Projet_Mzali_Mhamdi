@@ -43,7 +43,7 @@
     <div>
         <h2>Ajouter une destination</h2>
     </div>
-    <form>
+    <form  #f="ngForm" >
         <!-- <div class="col-sm-2 col-md-2 col-lg-2">
             <label>id Voyage</label>
             <input type="text" name="id" [(ngModel)]="newVoyage.id" class="form-control" />
@@ -88,12 +88,8 @@
 
         
         <div class="mt-2">
-            <button type="submit" (click)="addVoyage()" class="btn btn-success">Ajouter</button>
-            <!-- <div class="example-button-container">
-                <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </div> -->
+            <button type="submit" (click)="addVoyage(f)" class="btn btn-success">Ajouter</button>
+     *        <button type="reset">Reset</button>
         </div>
         <h3>{{msg}}</h3>
     </form>
