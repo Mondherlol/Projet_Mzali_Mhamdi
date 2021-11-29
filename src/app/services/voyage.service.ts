@@ -45,7 +45,8 @@ export class VoyageService {
      return (this.Voyage.filter(i=>(i.categorie==motcle)));
    }
    ajouterVoyage( voy:Voyage){
-    this.Voyage.push(voy);
+    let p1 = Object.assign({},voy);
+    this.Voyage.push(p1);
   }
   
 supprimerVoyage( voy:Voyage){

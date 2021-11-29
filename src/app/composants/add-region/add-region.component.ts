@@ -12,8 +12,9 @@ import { VoyageService } from 'src/app/services/voyage.service';
 export class AddRegionComponent implements OnInit {
 
   newRegion=new Region();
-
+  V : Voyage [];
   newVoyage=new Voyage();
+  id:number=0;
   msg : string;
   constructor(private regionService:RegionService,private voyageService:VoyageService) { }
 addRegion(){
@@ -22,6 +23,7 @@ addRegion(){
   this.msg = "Region"+ this.newRegion.nom +" ajouté avec succès"
 }
 addVoyage(){
+  this.newVoyage.id=this.V[this.V.length-1].id+1;
   this.newRegion.id=this.newVoyage.id;
   this.newRegion.nom=this.newVoyage.libelle;
   this.newRegion.prix=this.newVoyage.prix;
@@ -29,9 +31,14 @@ addVoyage(){
   this.addRegion();
   this.voyageService.ajouterVoyage(this.newVoyage);
   this.msg = "Voyage"+ this.newVoyage.libelle +" ajouté avec succès";
+  this.id++;
+  
 
 }
   ngOnInit(): void {
+    this.V=this.voyageService.getVoyage();
+    
   }
 
 }
+

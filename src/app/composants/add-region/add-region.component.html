@@ -44,10 +44,10 @@
         <h2>Ajouter une destination</h2>
     </div>
     <form>
-        <div class="col-sm-2 col-md-2 col-lg-2">
+        <!-- <div class="col-sm-2 col-md-2 col-lg-2">
             <label>id Voyage</label>
             <input type="text" name="id" [(ngModel)]="newVoyage.id" class="form-control" />
-        </div>
+        </div> -->
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>Libelle Voyage</label>
             <input type="text" [(ngModel)]="newVoyage.libelle" name="nom" class="form-control" />
@@ -61,9 +61,12 @@
             <input type="text" [(ngModel)]="newVoyage.Description" name="Description" class="form-control" />
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Image</label>
+            <label>Image URL</label>
             <input type="text" [(ngModel)]="newVoyage.Image" name="Image" class="form-control" />
         </div>
+
+
+
         <div class="col-sm-2 col-md-2 col-lg-2">
             <label>Promo</label>
             <input type="checkbox" [(ngModel)]="newVoyage.Promo" name="Promo" class="form-control"/>

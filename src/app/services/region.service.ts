@@ -17,7 +17,8 @@ export class RegionService {
     return this.region.find(i=>i.id==id);
 }
 ajouterRegion( reg:Region){
-  this.region.push(reg);
+  let p1 = Object.assign({},reg);
+  this.region.push(p1);
 }
 
 supprimerRegion( reg:Region){
