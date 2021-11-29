@@ -7,6 +7,7 @@ export class Region {
         public DescriptionDetaillee?:string,
         public img?:string,
         public activites?:string[],
+        
      
     ){}
 }

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conditions-d-utilisations.component.css']
 })
 export class ConditionsDUtilisationsComponent implements OnInit {
-
+v:number=0;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.v++);
   }
 
 }
