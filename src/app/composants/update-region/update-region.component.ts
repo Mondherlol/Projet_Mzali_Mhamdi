@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Region } from 'src/app/model/region';
 import { Voyage } from 'src/app/model/voyage';
 import { VoyageService } from 'src/app/services/voyage.service';
+import {  Input  } from '@angular/core';
+
 
 @Component({
   selector: 'app-update-region',
@@ -11,6 +13,7 @@ import { VoyageService } from 'src/app/services/voyage.service';
   styleUrls: ['./update-region.component.css']
 })
 export class UpdateRegionComponent implements OnInit {
+  
 currentRegion= new Region();
 newRegion=new Region();
 V : Voyage [];
