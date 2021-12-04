@@ -12,7 +12,7 @@
   <div> <h3 >{{Region.DescriptionH}}</h3> </div>
   <p>{{Region.DescriptionDetaillee}}</p>
 
-<form #f="ngForm" style=" display:flex; margin:auto; width: 25%; "class="card"   (ngSubmit)="onSubmit()">
+<!-- <form #f="ngForm" style=" display:flex; margin:auto; width: 25%; "class="card"   (ngSubmit)="onSubmit()">
   <label>Date de Départ</label><input type="date" required > <br>
   <label>Date de Retour</label><input type="date" required> <br>
   <label>Nombre d'adultes :</label>
@@ -44,7 +44,7 @@
 </div>
 <input type="submit" name="Réserver"  [disabled]="f.invalid">
 
-</form>
+</form> -->
 
   <!-- ON A BESOIN DE :
   Checkin (Date de départ)
@@ -63,4 +63,130 @@
   Prix Enfant PAR NUIT AUBERGE
   PRIX DE CHAQUE ACTIVITE -->
   
+  <div class="container">
+    <div class="row">
+  <div class="card col-sm-2" style="width: 45%">
+    <img [src]="Region.AubergeImage" class="card-img-top" alt="..." width="500px" height="400px">
+    <div class="card-body">
+      <h5 class="card-title">{{Region.AubergeNom}}</h5>
+      <h5 class="card-text">{{Region.AubergeDescription}}</h5>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl" (click)="calculerPrix()">
+        Réserver Hôtel
+      </button>
+        </div>
+  </div>
+
+  
+  <div class="card col-sm-2" style="width: 45%">
+    <img [src]="Region.HotelImage" class="card-img-top" alt="..." width="500px" height="400px">
+    <div class="card-body">
+      <h5 class="card-title">{{Region.HotelNom}}</h5>
+      <h5 class="card-text">{{Region.HotelDescription}}</h5>
+      <a href="#" class="btn btn-danger">Réserver Auberge</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-xl  " tabindex="-1" role="dialog"
+     aria-labelledby="myHugeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+<!-- Réserver -->
+
+<div id="booking" class="section">
+  <div class="section-center">
+    <div class="container">
+      <div class="row">
+        <div class="booking-form">
+          <div class="booking-bg"></div>
+          <form [formGroup]="ReserverForm"  (ngSubmit)="onSubmit()">
+            <div class="form-header">
+              <h2>Faites votre réservation</h2>
+            </div>
+            <div>
+              <div >
+                <div class="form-group">
+                  <span class="form-label">Date de Départ</span>
+                  <input class="form-control" type="date" [min]="jour" formControlName="dateDebut" (change)="datemax()"  >
+                </div>
+              </div>
+              <div >
+                <div class="form-group">
+                  <span class="form-label">Date de Retour</span>
+                  <input class="form-control" type="date" [min]="jourmin"  formControlName="dateFin" (change)="magique()">
+                </div>
+              </div>
+            </div>
+           
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Adultes</span>
+                  <select class="form-control" formControlName="nbrAdulte" (change)="calculerPrix()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Enfants</span>
+                  <select class="form-control" formControlName="nbrEnfants" (change)="calculerPrix()">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+              <span class="form-label">Sélectionnez vos activités :</span>
+
+<input type="checkbox" (change)="calculerPrix()"  class="btn-check"[id]="Region.activites[0]" autocomplete="off" formControlName="activites1"> <label [for]="Region.activites[0]" class="btn btn-outline-danger " style="margin-bottom: 5px;">{{Region.activites[0]}}</label>
+<input type="checkbox"  (change)="calculerPrix()" class="btn-check"[id]="Region.activites[1]" autocomplete="off" formControlName="activites2"> <label [for]="Region.activites[1]" class="btn btn-outline-danger" style="margin-bottom: 5px;">{{Region.activites[1]}}</label>
+<input type="checkbox" (change)="calculerPrix()"  class="btn-check"[id]="Region.activites[2]" autocomplete="off" formControlName="activites3"> <label [for]="Region.activites[2]" class="btn btn-outline-danger" style="margin-bottom: 5px;">{{Region.activites[2]}}</label>
+
+   
+            </div>
+            <div class="form-group">
+              <span class="form-label">Email</span>
+              <input class="form-control" type="email" placeholder="Entrez votre Email" formControlName="mailC">
+            </div>
+            <div class="form-group">
+              <span class="form-label">Téléphone</span>
+              <input class="form-control" type="tel" placeholder="Entrez votre numéro de Téléphone" formControlName="numeroC">
+            </div>
+            <div>
+              <h3>{{prix|prixDT}}</h3>
+              <h2>Prix hotel: {{Region.HotelPrix}}</h2>
+            </div>
+            <div class="form-btn">
+              <button class="submit-btn" [disabled]="ReserverForm.invalid">Réserver</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fin Réserver -->
+</div>
+</div>
+</div>
+
+
 <app-footer></app-footer>
