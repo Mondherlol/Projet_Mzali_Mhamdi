@@ -29,7 +29,8 @@ msg : string;
   ngOnInit(): void {
   console.log(this.activatedRoute.snapshot.params.id);
     this.newVoyage=this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id);
-    this.newRegion=this.regionService.getRegionById(this.activatedRoute.snapshot.params.id);
+    this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(dataRI=>this.newRegion=dataRI);
+
     console.log(this.newVoyage);
   }
 

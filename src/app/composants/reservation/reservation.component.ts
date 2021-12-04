@@ -22,7 +22,13 @@ export class ReservationComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id=this.activatedRoute.snapshot.params['id'];
-    this.Region=this.regionService.getRegionById(this.id);
+  //   this.Region=this.regionService.getRegionById(this.id);
+
+  //  this.regionService.getRegion().subscribe(dataR=>this.region= dataR);
+   this.regionService.getRegionById(this.id).subscribe(dataRI=>this.Region=dataRI);
+
+
+    
   }
 
 }

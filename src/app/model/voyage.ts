@@ -6,8 +6,6 @@ export class Voyage {
      public Description?:string,
      public Image?:string,
      public Duree?:string,
-     public DateDebut?:Date,
-     public DateFin?:Date,
      public Promo?:boolean,
      public PourcentagePromo?:number,
      public categorie?:string

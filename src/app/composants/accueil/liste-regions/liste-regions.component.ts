@@ -9,18 +9,35 @@ import { VoyageService } from 'src/app/services/voyage.service';
 })
 export class ListeRegionsComponent implements OnInit {
   Voyages: Voyage[]=[];
+  V:Voyage[]=[];
   constructor(private voyageService:VoyageService) { }
   Actif:String="Tout";
   test:boolean=true;
 filtrer(d:String){
   if (d=="Tout"){
-    this.Voyages=this.voyageService.getVoyage();
-  } else  this.Voyages=this.voyageService.getVoyageByCategorie(d);   
+    this.voyageService.getVoyage().subscribe(dataV=>this.Voyages = dataV);
+  } else {
+   
+    this.voyageService.getVoyage().subscribe(
+      
+        ()=> this.Voyages = this.V.filter(i=>(i.categorie==d))
+      )
+    
+    // this.voyageService.getVoyage().subscribe(dataV=>this.Voyages = dataV);
+    // this.Voyages=this.Voyages.filter(i=>(i.categorie==d));
+  }
+  // }  this.Voyages=this.voyageService.getVoyageByCategorie(d);   
+
 
   this.Actif=d;
 }
   ngOnInit(): void {
-    this.Voyages=this.voyageService.getVoyage();
+    // this.produitService.getProduits()
+    // .subscribe (data => this.lesProduits = data)
+   this.voyageService.getVoyage().subscribe(dataV=>this.Voyages = dataV);
+   this.voyageService.getVoyage().subscribe(dataV=>this.V = dataV);
+
+    
   }
 
 }

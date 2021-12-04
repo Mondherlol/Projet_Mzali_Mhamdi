@@ -13,9 +13,9 @@ region :Region[];//un tableau de region
 voyage: Voyage[];
 
   constructor(private regionService:RegionService,private voyageService:VoyageService) { 
- this.region=this.regionService.getRegion();
- this.voyage=this.voyageService.getVoyage();
-  }
+ this.regionService.getRegion().subscribe(dataR=>this.region= dataR);
+ this.voyageService.getVoyage().subscribe(dataV=>this.voyage = dataV);
+}
   supprimerRegion(reg:Region){
     // console.log(region);
 let conf=confirm("Etes-vous sûr ?");

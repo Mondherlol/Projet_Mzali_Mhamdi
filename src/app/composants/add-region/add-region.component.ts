@@ -38,7 +38,8 @@ addVoyage(form:NgForm){
 
 }
   ngOnInit(): void {
-    this.V=this.voyageService.getVoyage();
+    this.voyageService.getVoyage().subscribe(dataV=>this.V = dataV);
+
     
   }
 

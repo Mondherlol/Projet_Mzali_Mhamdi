@@ -23,7 +23,8 @@ afficherRegion(i:number){
 
   constructor(private voyageService:VoyageService) { }
   ngOnInit(): void {
-    this.Voyages=this.voyageService.getVoyage();
+    this.voyageService.getVoyage().subscribe(dataV=>this.Voyages = dataV);
+
   }
 
 }
