@@ -70,6 +70,7 @@
     <div class="card-body">
       <h5 class="card-title">{{Region.AubergeNom}}</h5>
       <h5 class="card-text">{{Region.AubergeDescription}}</h5>
+      <h3 style="color:red">{{Region.AubergePrix|prixDT}}</h3>
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl" (click)="reserverAuberge()">
       Réserver Auberge
       </button>
@@ -82,6 +83,12 @@
     <div class="card-body">
       <h5 class="card-title">{{Region.HotelNom}}</h5>
       <h5 class="card-text">{{Region.HotelDescription}}</h5>
+      <h3 *ngIf="Region.HotelPromo==0; else promo">{{Region.HotelPrix|prixDT}}</h3>
+      <ng-template #promo>
+        <h3 > <span style="color:black; text-decoration:line-through;">{{Region.HotelPrix}} </span> <span style="color:red;">{{calculerPourcentHotel()|prixDT}}</span></h3>
+        </ng-template>
+    
+
       <a href="#" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl"  (click)="reserverHotel()">  Réserver Hôtel</a>
     </div>
   </div>
@@ -110,7 +117,7 @@
     <div class="container">
       <div class="row">
         <div class="booking-form">
-          <div class="booking-bg"></div>
+          <div class="bg-booking" [ngStyle]="Hotel?{'background-image': 'url(' + Region.HotelImage + ')'}: {'background-image': 'url(' + Region.AubergeImage + ')'}"  ></div>
           <form [formGroup]="ReserverForm"  (ngSubmit)="onSubmit()">
             <div class="form-header">
               <h2>Faites votre réservation</h2>
@@ -165,10 +172,22 @@
             <div class="form-group">
               <span class="form-label">Email</span>
               <input class="form-control" type="email" placeholder="Entrez votre Email" formControlName="mailC">
+              <div class="alert alert-danger" *ngIf="mailC && mailC.invalid && mailC.dirty && mailC.value!=''">
+                  Le mail doit être dans un format correct.
+               </div>
+                <div class="alert alert-warning" *ngIf="mailC && mailC.dirty && mailC.value==''">
+                  Le mail est obligatoire.
+               </div>
             </div>
             <div class="form-group">
               <span class="form-label">Téléphone</span>
-              <input class="form-control" type="tel" placeholder="Entrez votre numéro de Téléphone" formControlName="numeroC">
+              <input class="form-control" type="tel" placeholder="Entrez votre numéro de Téléphone" maxlength="8" size="8" formControlName="numeroC">
+              <div class="alert alert-danger" *ngIf="numeroC && numeroC.invalid && numeroC.touched && numeroC.value!=''">
+                Le numéro ne doit comporter que 8 chiffres.
+             </div>
+              <div class="alert alert-warning" *ngIf="numeroC && numeroC.dirty && numeroC.value==''">
+                Le numéro de téléphone est obligatoire.
+             </div>
             </div>
             <div>
               <h3>{{prix|prixDT}}</h3>

@@ -45,14 +45,28 @@ magique(){
 }
 calculerPrix(){
   if (this.Hotel){
-    
+    if(this.Region.HotelPromo==0){
       this.prix=this.Region.HotelPrix*this.calculerEcart();
       if (this.ReserverForm.controls.nbrAdulte.value>2){
       this.prix=this.prix*2;
       }
+    }
+    else {
+      this.prix=this.calculerPourcentHotel()*this.calculerEcart();
+      if (this.ReserverForm.controls.nbrAdulte.value>2){
+      this.prix=this.prix*2;
+      }
+    }
   }
   else {
+    if (this.Region.AubergePromo==0){
     this.prix=this.Region.AubergePrix*this.calculerEcart();
+    }
+    else {
+      this.prix=this.calculerPourcentAuberge()*this.calculerEcart();
+
+    }
+
   }
 
  if (this.ReserverForm.controls.activites1.value){
@@ -75,6 +89,18 @@ if (this.ReserverForm.controls.activites3.value){
 
   
 }
+calculerPourcentHotel(){
+
+return this.Region.HotelPrix - (this.Region.HotelPrix*this.Region.HotelPromo / 100);
+
+ 
+}
+calculerPourcentAuberge(){
+
+  return this.Region.AubergePrix - (this.Region.AubergePrix*this.Region.AubergePromo / 100);
+  
+   
+  }
 datemax(){
   this.jourmin=  new Date(this.ReserverForm.controls.dateDebut.value).toJSON().split('T')[0];
   this.calculerEcart();
@@ -97,7 +123,10 @@ calculerEcart(){
     }
     console.log(diffDays);
   }
-
+  public get mailC()
+  { return this.ReserverForm.get('mailC'); }
+  public get numeroC()
+  { return this.ReserverForm.get('numeroC'); }
   ngOnInit(): void {
 
     this.ReserverForm = this.fb.group({
@@ -108,8 +137,8 @@ calculerEcart(){
       activites1:false,
       activites2:false,
       activites3:false,
-      mailC:['',Validators.required],
-      numeroC:[,Validators.required],
+      mailC:['',[Validators.required, Validators.email]],
+      numeroC:[,[Validators.required,Validators.minLength(8),Validators.pattern("^[0-9]*$")]],
 
     })
     this.id=this.activatedRoute.snapshot.params['id'];

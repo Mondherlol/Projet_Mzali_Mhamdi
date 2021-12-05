@@ -80,16 +80,17 @@ h3{
 	box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
 }
 
-.booking-form>.booking-bg {
+.bg-booking {
 	position: absolute;
 	left: 0px;
 	top: 0px;
 	bottom: 0px;
 	width: 250px;
-	background-image: url('src/assets/Reservation.jpg');
 	background-size: cover;
 	background-position: center;
 }
+
+
 
 .booking-form>form {
 	margin-left: 250px;

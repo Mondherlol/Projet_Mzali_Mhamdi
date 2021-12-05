@@ -12,10 +12,12 @@ export class Region {
         public HotelPrix?:number,
         public HotelImage?:string,
         public HotelDescription?:string,
+        public HotelPromo?:number,
         public AubergeNom?:string,
         public AubergePrix?:number,
         public AubergeImage?:string,
         public AubergeDescription?:string,
+        public AubergePromo?:number,
      
     ){}
 }

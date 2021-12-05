@@ -44,19 +44,23 @@ export class VoyageService {
     getVoyageById(id :number) {
       return this.Voyage.find(i=>i.id==id);
   }
-    getVoyageByMotCle(motcle:string){
-      return (this.Voyage.filter(i=>(i.libelle.toLowerCase().includes(motcle.toLowerCase()))||(i.categorie.toLowerCase()==motcle.toLowerCase()) ||(i.Description.toLowerCase().includes(motcle.toLowerCase()) )));
-    }
+  ajouterVoyage(voyage:Voyage):Observable<Voyage>{
+    return this.http.post<Voyage>(URL, voyage);
+  }
+
+    // getVoyageByMotCle(motcle:string){
+    //   return (this.Voyage.filter(i=>(i.libelle.toLowerCase().includes(motcle.toLowerCase()))||(i.categorie.toLowerCase()==motcle.toLowerCase()) ||(i.Description.toLowerCase().includes(motcle.toLowerCase()) )));
+    // }
     // getVoyageByMotCle(motcle:string):Observable<Voyage[]>{
     //   return this.http.get<Voyage[]>(URL).
     // }
-   getVoyageByCategorie(motcle:String){
-     return (this.Voyage.filter(i=>(i.categorie==motcle)));
-   }
-   ajouterVoyage( voy:Voyage){
-    let p1 = Object.assign({},voy);
-    this.Voyage.push(p1);
-  }
+  //  getVoyageByCategorie(motcle:String){
+  //    return (this.Voyage.filter(i=>(i.categorie==motcle)));
+  //  }
+  //  ajouterVoyage( voy:Voyage){
+  //   let p1 = Object.assign({},voy);
+  //   this.Voyage.push(p1);
+  // }
   
 supprimerVoyage( voy:Voyage){
   //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
