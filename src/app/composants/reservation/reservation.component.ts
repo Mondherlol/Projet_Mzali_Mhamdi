@@ -24,9 +24,19 @@ export class ReservationComponent implements OnInit {
   ecartH:number=0;
   ecartD:any;
 
+Hotel:boolean;
 jour = new Date().toJSON().split('T')[0];
 jourmin = new Date().toJSON().split('T')[0];
 jourRetour= new Date(   new Date().setDate(new Date().getDate() + 3) ).toJSON().split('T')[0];
+
+reserverHotel(){
+  this.Hotel=true;
+  this.calculerPrix()
+}
+reserverAuberge(){
+  this.Hotel=false;
+  this.calculerPrix();
+}
 
 prix:number=0;
 magique(){
@@ -34,21 +44,36 @@ magique(){
   this.calculerPrix();
 }
 calculerPrix(){
- this.prix=this.Region.HotelPrix*this.calculerEcart();
+  if (this.Hotel){
+    
+      this.prix=this.Region.HotelPrix*this.calculerEcart();
+      if (this.ReserverForm.controls.nbrAdulte.value>2){
+      this.prix=this.prix*2;
+      }
+  }
+  else {
+    this.prix=this.Region.AubergePrix*this.calculerEcart();
+  }
+
  if (this.ReserverForm.controls.activites1.value){
-   this.prix=this.prix+this.Region.activitesPrix[0];
+   this.prix=this.prix+this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrAdulte.value;
+   this.prix=this.prix+(this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrEnfants.value)/2;
  }
  if (this.ReserverForm.controls.activites2.value){
-  this.prix=this.prix+this.Region.activitesPrix[1];
+  this.prix=this.prix+this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrAdulte.value;
+  this.prix=this.prix+(this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrEnfants.value)/2;
 }
 if (this.ReserverForm.controls.activites3.value){
-  this.prix=this.prix+this.Region.activitesPrix[2];
+  this.prix=this.prix+this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrAdulte.value;
+  this.prix=this.prix+(this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrEnfants.value)/2;
 }
 //  if (this.ReserverForm.controls.dateDebut.value)
  if (this.prix<0){
    this.prix=0;
  }
+  
 
+  
 }
 datemax(){
   this.jourmin=  new Date(this.ReserverForm.controls.dateDebut.value).toJSON().split('T')[0];

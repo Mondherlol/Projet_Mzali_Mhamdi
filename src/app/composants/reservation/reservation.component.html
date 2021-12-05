@@ -70,8 +70,8 @@
     <div class="card-body">
       <h5 class="card-title">{{Region.AubergeNom}}</h5>
       <h5 class="card-text">{{Region.AubergeDescription}}</h5>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl" (click)="calculerPrix()">
-        Réserver Hôtel
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl" (click)="reserverAuberge()">
+      Réserver Auberge
       </button>
         </div>
   </div>
@@ -82,7 +82,7 @@
     <div class="card-body">
       <h5 class="card-title">{{Region.HotelNom}}</h5>
       <h5 class="card-text">{{Region.HotelDescription}}</h5>
-      <a href="#" class="btn btn-danger">Réserver Auberge</a>
+      <a href="#" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl"  (click)="reserverHotel()">  Réserver Hôtel</a>
     </div>
   </div>
 </div>
@@ -138,6 +138,7 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
+                    <option value="4">4</option>
                   </select>
                   <span class="select-arrow"></span>
                 </div>
@@ -171,7 +172,8 @@
             </div>
             <div>
               <h3>{{prix|prixDT}}</h3>
-              <h2>Prix hotel: {{Region.HotelPrix}}</h2>
+              <h2 *ngIf="Hotel" >Prix hotel: {{Region.HotelPrix}}</h2>
+              <h2 *ngIf="!Hotel"> Prix Auberge: {{Region.AubergePrix}}</h2>
             </div>
             <div class="form-btn">
               <button class="submit-btn" [disabled]="ReserverForm.invalid">Réserver</button>
