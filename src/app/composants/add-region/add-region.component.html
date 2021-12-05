@@ -1,80 +1,229 @@
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-<div class="container">
-    <div>
-        <h2>Ajouter une destination</h2>
-    </div>
-    <form  [formGroup]="AjouterForm" (ngSubmit)="onSubmit()"    >
-      
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Libelle Voyage</label>
-            <input type="text" formControlName="libelle" class="form-control" />
-        </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Prix Region</label>
-            <input type="number" formControlName="prix" class="form-control" />
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>Description</label>
-            <input type="text" formControlName="Description" class="form-control" />
-        </div>
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Image URL</label>
-            <input type="text" formControlName="Image" class="form-control" />
-        </div>
+<app-top></app-top>
+<br> <br> <br> <br>
+<!-- <div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Région</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body"> -->
+        <div class="container">
+          <div>
+            <h2>Ajouter une destination</h2>
+          </div>
+          <form [formGroup]="AjouterForm" (ngSubmit)="onSubmit()">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label>Libelle Voyage</label>
+              <input
+                type="text"
+                formControlName="libelle"
+                class="form-control"
+              />
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+              <label>Prix Region</label>
+              <input
+                type="number"
+                formControlName="prix"
+                class="form-control"
+              />
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label>Description</label>
+              <input
+                type="text"
+                formControlName="Description"
+                class="form-control"
+              />
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+              <label>Image URL</label>
+              <input type="text" formControlName="Image" class="form-control" />
+            </div>
 
-
-<!-- 
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Promo</label>
-            <input type="checkbox" formControlName="Promo" class="form-control"/>
-        </div> -->
-        <div class="col-sm-2 col-md-2 col-lg-2">
-            <label>Categorie</label>
-            <select formControlName="categorie" class="form-control">
+          
+            <div class="col-sm-2 col-md-2 col-lg-2">
+              <label>Categorie</label>
+              <select formControlName="categorie" class="form-control">
                 <option value="Traditionnelle">Traditionnelle</option>
                 <option value="Paradisiaque">Paradisiaque</option>
                 <option value="Historique">Historique</option>
                 <option value="Touristique">Touristique</option>
-            </select>
+              </select>
+            </div>
+
+            <!-- ID jusqua ACTIVITES -->
+            <div class="col-sm-8 col-md-8 col-lg-8">
+              <label>DescriptionH</label>
+              <input
+                type="text"
+                formControlName="DescriptionH"
+                class="form-control"
+              />
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+              <label> DescriptionDetaillee</label>
+              <input
+                type="text"
+                formControlName="DescriptionDetaillee"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-sm-8 col-md-8 col-lg-8">
+              <label> Image Region </label>
+              <input type="text" formControlName="img" class="form-control" />
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label> Activité 1 </label>
+                  <input
+                    type="text"
+                    formControlName="Activites1"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Prix</span>
+                  <input
+                    type="number"
+                    formControlName="Activites1Prix"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label> Activité 2 </label>
+                  <input
+                    type="text"
+                    formControlName="Activites2"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Prix</span>
+                  <input
+                    type="number"
+                    formControlName="Activites2Prix"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label> Activité 3 </label>
+                    <input
+                      type="text"
+                      formControlName="Activites3"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <span class="form-label">Prix</span>
+                    <input
+                      type="number"
+                      formControlName="Activites3Prix"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            
+
+            <!-- HOTEL NOM JUSQUA AUBERGE -->
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>HotelNom</label>
+                <input type="text" formControlName="HotelNom" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>HotelImage</label>
+                <input type="text" formControlName="HotelImage" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>HotelPrix</label>
+                <input type="number" formControlName="HotelPrix" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>HotelPromo</label>
+                <input type="number" formControlName="HotelPromo" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>HotelDescription</label>
+                <input type="text" formControlName="HotelDescription" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>AubergeNom</label>
+                <input type="text" formControlName="AubergeNom" class="form-control" />
+            </div>
+
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>AubergeImage</label>
+                <input type="text" formControlName="AubergeImage" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>AubergePrix</label>
+                <input type="number" formControlName="AubergePrix" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>AubergePromo</label>
+                <input type="number" formControlName="AubergePromo" class="form-control" />
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>AubergeDescription</label>
+                <input type="text" formControlName="AubergeDescription" class="form-control" />
+            </div>
+            <!-- FIN -->
+
+            <div class="mt-2">
+              <button type="submit" class="btn btn-success">Ajouter</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+            <h3>{{ msg }}</h3>
+          </form>
         </div>
-        
-     <!-- ID jusqua ACTIVITES -->
 
-
-
-
-     <!-- HOTEL NOM JUSQUA AUBERGE -->
-
-
-
-     <!-- FIN -->
-        
-        <div class="mt-2">
-            <button type="submit"  class="btn btn-success">Ajouter</button>
-             <button type="reset" class="btn btn-danger">Reset</button>
-        </div>
-        <h3>{{msg}}</h3>
-    </form>
-  
-</div>
-
-
-
-
-          <!-- ICI -->
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <button   type="submit"  class="btn btn-primary">Ajouter</button> -->
-        
-        </div>
+        <!-- ICI -->
+      <!-- </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button   type="submit"  class="btn btn-primary">Ajouter</button>
       </div>
     </div>
   </div>
+</div> -->

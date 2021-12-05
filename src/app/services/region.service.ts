@@ -19,14 +19,17 @@ export class RegionService {
   getRegion():Observable<Region[]>{
     return this.http.get<Region[]>(URL);
     }
+    ajouterRegion(region:Region):Observable<Region>{
+      return this.http.post<Region>(URL, region);
+    }
   getRegionById(id :number):Observable<Region> {
     // return this.region.find(i=>i.id==id);
     return this.http.get<Region>(URL+"/"+id);
 }
-ajouterRegion( reg:Region){
-  let p1 = Object.assign({},reg);
-  this.region.push(p1);
-}
+// ajouterRegion( reg:Region){
+//   let p1 = Object.assign({},reg);
+//   this.region.push(p1);
+// }
 
 supprimerRegion( reg:Region){
   //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp

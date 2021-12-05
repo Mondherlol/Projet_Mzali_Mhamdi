@@ -14,6 +14,7 @@ export class AddRegionComponent implements OnInit {
   AjouterForm:FormGroup;
   newRegion=new Region();
   V : Voyage [];
+  R : Region [];
   newVoyage=new Voyage();
   id:number=0;
   msg : string;
@@ -42,20 +43,47 @@ onSubmit(){
   this.newVoyage=this.AjouterForm.value;
   console.log(this.newVoyage);
  this.voyageService.ajouterVoyage(this.newVoyage).subscribe( data => this.V.push(data) );
-
+ this.newRegion=this.AjouterForm.value;
+ this.newRegion.nom=this.newVoyage.libelle;
+ this.newRegion.id=this.newVoyage.id;
+this.regionService.ajouterRegion(this.newRegion).subscribe( dataR =>this.R.push(dataR) );
 }
 
   ngOnInit(): void {
     this.voyageService.getVoyage().subscribe(dataV=>this.V = dataV);
+    this.regionService.getRegion().subscribe(dataR=>this.R = dataR);
+    
     this.AjouterForm = this.fb.group({
 
-
+//VOYAGE
      libelle:[''],
      prix:[],
      Description:[''],
      Image:[''],
-     categorie:['']
-     
+     categorie:[''],
+    
+//REGION
+
+DescriptionH:[''],
+DescriptionDetaillee:[''],
+img:[''],
+Activites1:[''],
+Activites1Prix:[0],
+Activites2:[''],
+Activites2Prix:[0],
+Activites3:[''],
+Activites3Prix:[0],
+HotelNom:[''],
+HotelImage:[''],
+HotelPrix:[''],
+HotelPromo:[0],
+HotelDescription:[''],
+AubergeNom:[''],
+AubergeImage:[''],
+AubergePrix:[''],
+AubergeDescription:[''],
+AubergePromo:[0],
+
 
     })
     
