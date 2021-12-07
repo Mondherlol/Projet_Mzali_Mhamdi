@@ -85,8 +85,10 @@ if (this.ReserverForm.controls.activites3.value){
  if (this.prix<0){
    this.prix=0;
  }
-  
-
+  // Prix Billet
+ this.prix=this.prix+(418*this.ReserverForm.controls.nbrAdulte.value)+(418*this.ReserverForm.controls.nbrEnfants.value);
+//  Prix Bénéfice
+ this.prix=this.prix - ( (10/100) * this.prix);
   
 }
 calculerPourcentHotel(){

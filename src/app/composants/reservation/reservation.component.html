@@ -70,7 +70,11 @@
     <div class="card-body">
       <h5 class="card-title">{{Region.AubergeNom}}</h5>
       <h5 class="card-text">{{Region.AubergeDescription}}</h5>
-      <h3 style="color:red">{{Region.AubergePrix|prixDT}}</h3>
+      <h3 *ngIf="Region.AubergePromo==0; else promoA">{{Region.AubergePrix|prixDT}}</h3>
+      <ng-template #promoA>
+        <h3 > <span style="color:black; text-decoration:line-through;">{{Region.AubergePrix}} </span> <span style="color:red;">{{calculerPourcentAuberge()|prixDT}}</span></h3>
+        </ng-template>
+     
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-xl" (click)="reserverAuberge()">
       Réserver Auberge
       </button>
@@ -209,7 +213,5 @@
 </div>
 </div>
 
-{{Region|json}}
-{{Region.HotelPrix}}
 
 <app-footer></app-footer>
