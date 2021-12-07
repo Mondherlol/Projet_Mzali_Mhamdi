@@ -47,7 +47,11 @@ export class VoyageService {
   ajouterVoyage(voyage:Voyage):Observable<Voyage>{
     return this.http.post<Voyage>(URL, voyage);
   }
-
+  supprimerVoyage( id:number)
+  {
+    return this.http.delete(URL+"/"+id);
+  
+  }
     // getVoyageByMotCle(motcle:string){
     //   return (this.Voyage.filter(i=>(i.libelle.toLowerCase().includes(motcle.toLowerCase()))||(i.categorie.toLowerCase()==motcle.toLowerCase()) ||(i.Description.toLowerCase().includes(motcle.toLowerCase()) )));
     // }
@@ -62,13 +66,13 @@ export class VoyageService {
   //   this.Voyage.push(p1);
   // }
   
-supprimerVoyage( voy:Voyage){
-  //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
-   const index = this. Voyage.indexOf(voy, 0);
-   if (index > -1) {
-     this. Voyage.splice(index, 1);
-   }
-  }
+// supprimerVoyage( voy:Voyage){
+//   //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
+//    const index = this. Voyage.indexOf(voy, 0);
+//    if (index > -1) {
+//      this. Voyage.splice(index, 1);
+//    }
+//   }
   constructor(private http:HttpClient) { }
  
 }

@@ -23,7 +23,7 @@
           <div>
             <h2>Ajouter une destination</h2>
           </div>
-          <form [formGroup]="AjouterForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="AjouterForm" >
             <div class="col-sm-4 col-md-4 col-lg-4">
               <label>Libelle Voyage</label>
               <input
@@ -63,7 +63,10 @@
                 <option value="Touristique">Touristique</option>
               </select>
             </div>
+          </form>
 
+          <!-- DEBUT REGION FORM -->
+          <form [formGroup]="RegionForm">
             <!-- ID jusqua ACTIVITES -->
             <div class="col-sm-8 col-md-8 col-lg-8">
               <label>DescriptionH</label>
@@ -87,7 +90,7 @@
               <input type="text" formControlName="img" class="form-control" />
             </div>
 
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label> Activité 1 </label>
@@ -155,7 +158,7 @@
                   </div>
                 </div>
               </div>
-            
+             -->
 
             <!-- HOTEL NOM JUSQUA AUBERGE -->
             <div class="col-sm-4 col-md-4 col-lg-4">
@@ -208,14 +211,35 @@
                 <label>AubergeDescription</label>
                 <input type="text" formControlName="AubergeDescription" class="form-control" />
             </div>
-            <!-- FIN -->
 
+
+
+            <div formArrayName="activites">
+              Liste des activites
+              <div *ngFor="let a of activites.controls;let i=index">
+                  <input type="text" [formControlName]=" i" />
+              </div>
+              <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouter()"> <br>
+  
+          </div>
+          
+          <div formArrayName="activitesPrix">
+            Liste des prix des activités
+            <div *ngFor="let p of activitesPrix.controls;let i=index">
+                <input type="text" [formControlName]=" i" />
+            </div>
+            <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouterPrix()"> <br>
+
+        </div>
+            <!-- FIN -->
+          </form>
             <div class="mt-2">
-              <button type="submit" class="btn btn-success">Ajouter</button>
+              <!-- <button type="submit" class="btn btn-success">Ajouter</button> -->
+              <input type="button" class="btn btn-success" value="Ajouter" (click)="Ajouter()">
               <button type="reset" class="btn btn-danger">Reset</button>
             </div>
             <h3>{{ msg }}</h3>
-          </form>
+      
         </div>
 
         <!-- ICI -->
@@ -227,3 +251,8 @@
     </div>
   </div>
 </div> -->
+<h1>VOYAGE FORM</h1>
+{{AjouterForm.value|json}}
+<br>
+<h1>REGION FORM</h1>
+{{RegionForm.value|json}}

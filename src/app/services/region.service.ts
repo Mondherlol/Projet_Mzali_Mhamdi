@@ -31,21 +31,26 @@ export class RegionService {
 //   this.region.push(p1);
 // }
 
-supprimerRegion( reg:Region){
-  //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
-   const index = this. region.indexOf(reg, 0);
-   if (index > -1) {
-     this. region.splice(index, 1);
-   }
+supprimerRegion( id:number)
+{
+  return this.http.delete(URL+"/"+id);
 
-   //ou Bien
-   /*  this. region.forEach((cur, index) => {
-      if(reg.id === cur.id) {
-            this.region.splice(index, 1);  
-         }
-   }); */
+}
+// supprimerRegion( reg:Region){
+//   //supprimer le Region reg du tableau Region ,je vais l appeler dans region.ts=>supp
+//    const index = this. region.indexOf(reg, 0);
+//    if (index > -1) {
+//      this. region.splice(index, 1);
+//    }
 
- }
+//    //ou Bien
+//    /*  this. region.forEach((cur, index) => {
+//       if(reg.id === cur.id) {
+//             this.region.splice(index, 1);  
+//          }
+//    }); */
+
+//  }
  regions:Region;
  //dans le composant update je vais consulter cette methode pour pouvoir modifier
  consulterRegion(id:number): Region{    

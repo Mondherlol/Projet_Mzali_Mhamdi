@@ -20,12 +20,14 @@ voyage: Voyage[];
     // console.log(region);
 let conf=confirm("Etes-vous sûr ?");
 if (conf)
-    this.regionService.supprimerRegion(reg);
+    this.regionService.supprimerRegion(reg.id).subscribe();
   }
   supprimerVoyage(voy:Voyage){
     let conf=confirm("Etes-vous sûr ?");
     if (conf)
-    this.voyageService.supprimerVoyage(voy);
+    this.voyageService.supprimerVoyage(voy.id).subscribe(
+      ()=> this.voyage = this.voyage.filter(l => l.id != voy.id)
+    );
   }
   ngOnInit(): void {
   }
