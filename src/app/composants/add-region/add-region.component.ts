@@ -43,9 +43,17 @@ onSubmit(){
   this.newVoyage=this.AjouterForm.value;
   console.log(this.newVoyage);
  this.voyageService.ajouterVoyage(this.newVoyage).subscribe( data => this.V.push(data) );
+
+
  this.newRegion=this.AjouterForm.value;
  this.newRegion.nom=this.newVoyage.libelle;
- this.newRegion.id=this.newVoyage.id;
+ this.newRegion.activites[0]=this.AjouterForm.controls.activites1.value;
+ this.newRegion.activites[1]=this.AjouterForm.controls.activites2.value;
+ this.newRegion.activites[2]=this.AjouterForm.controls.activites3.value;
+this.newRegion.activitesPrix[0]=this.AjouterForm.controls.Activites1Prix.value;
+this.newRegion.activitesPrix[1]=this.AjouterForm.controls.Activites2Prix.value;
+this.newRegion.activitesPrix[2]=this.AjouterForm.controls.Activites3Prix.value;
+this.newRegion.id=this.newVoyage.id;
 this.regionService.ajouterRegion(this.newRegion).subscribe( dataR =>this.R.push(dataR) );
 }
 
