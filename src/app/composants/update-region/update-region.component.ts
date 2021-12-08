@@ -5,7 +5,7 @@ import { Region } from 'src/app/model/region';
 import { Voyage } from 'src/app/model/voyage';
 import { VoyageService } from 'src/app/services/voyage.service';
 import {  Input  } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -42,7 +42,24 @@ test(){
   let V=this.newVoyage;
   return V.libelle;
 }
+public get activites(){
+  return this.RegionForm.get('activites') as FormArray;
 
+}
+public get activitesPrix(){
+  return this.RegionForm.get('activitesPrix') as FormArray;
+
+}
+onAjouter(){
+  this.activites.push(this.fb.control(''));
+  this.onAjouterPrix();
+
+}  
+onAjouterPrix(){
+  this.activitesPrix.push(this.fb.control(''));
+  
+
+}
 
   ngOnInit(): void {
   //   this.voyageService.getVoyage().subscribe(dataV=>this.V = dataV);
@@ -54,16 +71,42 @@ test(){
     // this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(dataRI=>this.newRegion=dataRI);
     // console.log(this.V);
     // console.log(this.V[0].libelle);
-    this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.newVoyage=data);
-
+    // this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.VoyageForm.controls['libelle'].setValue(data.libelle)   );
+    // this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.VoyageForm.controls['prix'].setValue(data.prix)   );
+    this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.VoyageForm.patchValue({
+      libelle:data.libelle,
+      prix:data.prix,
+      Description:data.Description,
+      Image:data.Image,
+      categorie:data.categorie
+   })   );
+// this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(dataR=>this.RegionForm.controls['DescriptionH'].setValue(dataR.DescriptionH));
+   this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.RegionForm.patchValue({
+    DescriptionH:data.DescriptionH,
+    DescriptionDetaillee:data.DescriptionDetaillee,
+    img:data.img,
+    HotelNom:data.HotelNom,
+    HotelImage:data.HotelImage,
+    HotelPrix:data.HotelPrix,
+    HotelPromo:data.HotelPromo,
+    HotelDescription:data.HotelDescription,
+    AubergeNom:data.AubergeNom,
+    AubergeImage:data.AubergeImage,
+    AubergePrix:data.AubergePrix,
+    AubergeDescription:data.AubergeDescription,
+    AubergePromo:data.AubergePromo,
+    activites:data.activites,
+    activitesPrix:data.activitesPrix,
+   }));
+   
     this.VoyageForm = this.fb.group({
 
       //VOYAGE
-           libelle:[this.newVoyage.libelle],
+           libelle:[],
            prix:[],
-           Description:['sdfsdf'],
-           Image:['/assets/Kansai.jpg'],
-           categorie:['Historique'],
+           Description:[],
+           Image:[],
+           categorie:[],
           
       
       
@@ -71,28 +114,22 @@ test(){
           this.RegionForm = this.fb.group({
       //REGION
       
-      DescriptionH:['zeezr'],
-      DescriptionDetaillee:['zerzer'],
-      img:['/assets/Kansai.jpg'],
-      // Activites1:['zerze'],
-      // Activites1Prix:[50],
-      // Activites2:['erezr'],
-      // Activites2Prix:[545],
-      // Activites3:['fsdds'],
-      // Activites3Prix:[53],
-      activites:this.fb.array(['']),
-      activitesPrix:this.fb.array(['']),
+      DescriptionH:[],
+      DescriptionDetaillee:[],
+      img:[],
+      activites:this.fb.array([]),
+      activitesPrix:this.fb.array([]),
       
-      HotelNom:['sdfdsf'],
-      HotelImage:['fsdsd'],
-      HotelPrix:[25],
-      HotelPromo:[0],
-      HotelDescription:['sdfds'],
-      AubergeNom:['sdfds'],
-      AubergeImage:['sdfds'],
-      AubergePrix:[50],
-      AubergeDescription:['dsfsdf'],
-      AubergePromo:[10],
+      HotelNom:[],
+      HotelImage:[],
+      HotelPrix:[],
+      HotelPromo:[],
+      HotelDescription:[],
+      AubergeNom:[],
+      AubergeImage:[],
+      AubergePrix:[],
+      AubergeDescription:[],
+      AubergePromo:[],
           })
   
   }
