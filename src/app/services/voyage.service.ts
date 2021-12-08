@@ -41,9 +41,13 @@ export class VoyageService {
     getVoyage():Observable<Voyage[]>{
       return this.http.get<Voyage[]>(URL);
       }
-    getVoyageById(id :number) {
-      return this.Voyage.find(i=>i.id==id);
-  }
+      getVoyageById(id :number):Observable<Voyage> {
+        return this.http.get<Voyage>(URL+"/"+id);
+      }
+      // getVoyageById():Observable<Voyage> {
+      //   // return this.http.get<Voyage>(URL+"/"+id);
+      //   return this.http.get<Voyage>("http://localhost:3000/Voyage/1");
+      // }
   ajouterVoyage(voyage:Voyage):Observable<Voyage>{
     return this.http.post<Voyage>(URL, voyage);
   }
@@ -73,7 +77,12 @@ export class VoyageService {
 //      this. Voyage.splice(index, 1);
 //    }
 //   }
+modifier(id:number, voyage:Voyage):Observable<Voyage>{
+  return this.http.put<Voyage>(URL+"/"+id, voyage);
+}
+
   constructor(private http:HttpClient) { }
  
 }
+
 

@@ -90,76 +90,6 @@
               <input type="text" formControlName="img" class="form-control" />
             </div>
 
-            <!-- <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label> Activité 1 </label>
-                  <input
-                    type="text"
-                    formControlName="Activites1"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <span class="form-label">Prix</span>
-                  <input
-                    type="number"
-                    formControlName="Activites1Prix"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label> Activité 2 </label>
-                  <input
-                    type="text"
-                    formControlName="Activites2"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <span class="form-label">Prix</span>
-                  <input
-                    type="number"
-                    formControlName="Activites2Prix"
-                    class="form-control"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label> Activité 3 </label>
-                    <input
-                      type="text"
-                      formControlName="Activites3"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <span class="form-label">Prix</span>
-                    <input
-                      type="number"
-                      formControlName="Activites3Prix"
-                      class="form-control"
-                    />
-                  </div>
-                </div>
-              </div>
-             -->
-
             <!-- HOTEL NOM JUSQUA AUBERGE -->
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <label>HotelNom</label>
@@ -213,22 +143,25 @@
             </div>
 
 
-
-            <div formArrayName="activites">
+<div class="container">
+            <div formArrayName="activites" class="row" >
+              <div class="col-md-2">
               Liste des activites
               <div *ngFor="let a of activites.controls;let i=index">
                   <input type="text" [formControlName]=" i" />
               </div>
-              <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouter()"> <br>
-  
-          </div>
-          
-          <div formArrayName="activitesPrix">
-            Liste des prix des activités
-            <div *ngFor="let p of activitesPrix.controls;let i=index">
-                <input type="text" [formControlName]=" i" />
             </div>
-            <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouterPrix()"> <br>
+              <div formArrayName="activitesPrix" class="col-md-2">
+                Liste des prix des activités
+                <div *ngFor="let p of activitesPrix.controls;let i=index">
+                    <input type="text" [formControlName]=" i" />
+                </div>
+                <!-- <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouterPrix()"> <br> -->
+
+            </div>
+
+          </div>
+          <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouter()"> <br>
 
         </div>
             <!-- FIN -->

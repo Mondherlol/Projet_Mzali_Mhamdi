@@ -57,7 +57,9 @@ supprimerRegion( id:number)
   this.regions=  this.region.find(r => r.id== id);
     return this.regions;
  }
-
+ modifier(id:number, reg:Region):Observable<Region>{
+  return this.http.put<Region>(URL+"/"+id, reg);
+}
   
  constructor(private http:HttpClient) { }
 }

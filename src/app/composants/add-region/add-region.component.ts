@@ -20,25 +20,7 @@ export class AddRegionComponent implements OnInit {
   id:number=0;
   msg : string;
   constructor(private regionService:RegionService,private voyageService:VoyageService,private fb:FormBuilder) { }
-// addRegion(){
-//   // console.log(this.newRegion);
-//   this.regionService.ajouterRegion(this.newRegion);
-//   this.msg = "Region"+ this.newRegion.nom +" ajouté avec succès"
-// }
-// addVoyage(form:NgForm){
-//   this.newVoyage.id=this.V[this.V.length-1].id+1;
-//   this.newRegion.id=this.newVoyage.id;
-//   this.newRegion.nom=this.newVoyage.libelle;
-//   this.newRegion.prix=this.newVoyage.prix;
-//   this.newRegion.img=this.newVoyage.Image;
-//   this.addRegion();
-//   this.voyageService.ajouterVoyage(this.newVoyage);
-//   this.msg = "Voyage"+ this.newVoyage.libelle +" ajouté avec succès";
-//   this.id++;
-//   form.resetForm();
-  
 
-// }
 Ajouter(){
   
   this.voyageService.ajouterVoyage(this.AjouterForm.value).subscribe( data => this.V.push(data) );
@@ -79,6 +61,7 @@ onSubmit(){
 }
 onAjouter(){
   this.activites.push(this.fb.control(''));
+  this.onAjouterPrix();
 
 }  
 onAjouterPrix(){
@@ -93,8 +76,8 @@ public get activitesPrix(){
 }
   ngOnInit(): void {
     this.voyageService.getVoyage().subscribe(dataV=>this.V = dataV);
+  
     this.regionService.getRegion().subscribe(dataR=>this.R = dataR);
-    
     this.AjouterForm = this.fb.group({
 
 //VOYAGE

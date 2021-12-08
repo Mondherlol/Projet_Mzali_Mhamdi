@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { User } from 'src/app/model/user.model';
+import { Admin } from 'src/app/model/admin';
+import { AdminService } from 'src/app/services/admin.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,8 +11,12 @@ import { User } from 'src/app/model/user.model';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  admin:Admin[];
+  adminC:Admin = new Admin;
+  connexion:boolean=false;
+  constructor(private router:Router,private _snackBar: MatSnackBar,private adminService:AdminService ) {
   
-  constructor(private router:Router,private _snackBar: MatSnackBar ) {}
+  }
   // sarra
   // user= new User();
   // onLoggedin(){
@@ -18,7 +24,9 @@ export class LoginComponent implements OnInit {
   //   }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.adminService.getAdmin().subscribe(data=>this.admin=data);
+  }
 
   openSnackBar(message: string) {
     this._snackBar.open(message);
@@ -28,12 +36,26 @@ export class LoginComponent implements OnInit {
    request = new XMLHttpRequest();
 
 connecter ( ad:string, mdp:string){
-  if (ad=='Mondher' && mdp=="lol123"){
-    this.router.navigate(['/admin']);
+  for (let a of this.admin){
+    if (ad==(a.pseudo) && mdp== a.mdp){
+      a.connecte=true;
+      this.adminC.id=a.id;
+      this.adminC.pseudo=a.pseudo;
+      this.adminC.mdp=a.mdp;
+      this.adminC.connecte=true;
+      alert(this.adminC.connecte);  
+      this.adminService.modifier(this.adminC.id,this.adminC ).subscribe(data => console.log(data));
+      alert(this.adminC.pseudo);
+      this.connexion=true;
+
+      this.router.navigate(['/admin']);
+    }
   }
-    else {
+ 
+    if (this.connexion==false){
       alert("Informations incorrectes");
     }
+    
   
 }
 
