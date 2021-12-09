@@ -41,13 +41,17 @@
                 <li class="nav-item" *ngIf="isAdmin()"> 
                     <a class="nav-link" routerLink="/admin">Admin</a>
                 </li>
+                <li class="nav-item" *ngIf="isAdmin()"> 
+                    <a (click)="Deconnexion()" class="btn-lg">
+                        <span class="fas fa-sign-out-alt " style="color:red; padding-top:8px;"></span> 
+                      </a>
+                </li>
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" (change)="rechercher(r.value)" #r>
                 <button class="btn btn-outline-success" type="submit" [routerLink]="['/rechercher',motcle]">Rechercher</button>
             </form>
-     
-
+          
             
         </div>
     </div>

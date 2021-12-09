@@ -42,6 +42,20 @@ export class TopComponent implements OnInit {
   //   }
  
   // }
+
+  Deconnexion(){
+    this.adminService.getAdmin().subscribe(data=>{
+      for (let a of data){
+        if(a.connecte){
+          a.connecte=false;
+          this.adminService.modifier(a.id,a).subscribe();
+          location.reload();
+
+        }
+      }
+    }); 
+
+  }
   ngOnInit(): void {
     this.adminService.getAdmin().subscribe(data=>this.admin=data); 
     // this.Test();
