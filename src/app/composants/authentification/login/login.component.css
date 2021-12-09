@@ -17,3 +17,7 @@ button {
 i {
     zoom: 3;
 } */
+
+button:disabled{
+    background-color: black!important;
+}

@@ -43,9 +43,7 @@ connecter ( ad:string, mdp:string){
       this.adminC.pseudo=a.pseudo;
       this.adminC.mdp=a.mdp;
       this.adminC.connecte=true;
-      alert(this.adminC.connecte);  
       this.adminService.modifier(this.adminC.id,this.adminC ).subscribe(data => console.log(data));
-      alert(this.adminC.pseudo);
       this.connexion=true;
 
       this.router.navigate(['/admin']);

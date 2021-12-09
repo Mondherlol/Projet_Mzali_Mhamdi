@@ -1,4 +1,4 @@
-<div id="container" style="background-image: url('assets/waljapon.jpg')">
+<!-- <div id="container" style="background-image: url('assets/waljapon.jpg')">
     <i class="bi bi-lock-fill"></i>
     <br><br>
     <div class="d-flex justify-content-center">
@@ -16,26 +16,7 @@
     <br>
     <a href="/signup" class="link-dark"> Vous n'avez pas de compte ? S'inscrire</a>
 </div>
-<!-- 
-<div class="container mt-5">
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <form>
-                <div class="form-group">
-                    <label>Nom Utilisateur :</label>
-                    <input type="text" name="username" class="form-control" [(ngModel)]="user.username">
-                </div>
-                <div class="form-group">
-                    <label>Mot de passe :</label>
-                    <input type="password" name="password" [(ngModel)]="user.password" class="form-control">
-                </div>
-                <div class="row justify-content-md-center">
-                    <button type="button" (click)="onLoggedin()" class="btn btn-success">Connexion</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> -->
+
 
 
 <div *ngFor="let a of admin">
@@ -44,6 +25,60 @@
 {{a.mdp}}
 {{a.connecte}}
 </h1>
-</div>
+</div> -->
 
 
+
+
+<section class="vh-100" style="background-color: #dc3545;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img
+                  src="assets/login.jpg"
+                  alt="login form"
+                  class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+                />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form>
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <span class="h1 fw-bold me-3">
+                          <h2>Connexion</h2>
+                      </span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez-vous à votre compte administrateur.</h5>
+  
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form2Example17" class="form-control form-control-lg" name="adresse" class="form-control" placeholder="Identifiant" #adresse required/>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form2Example27" class="form-control form-control-lg" type="password" name="mdp" class="form-control" placeholder="Mot de passe" #mdp required/>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" style="background-color: #dc3545;" type="button"(click)="connecter(adresse.value,mdp.value)" >Connexion</button>
+                    </div>
+  
+                    <a class="small text-muted" href="#!">Forgot password?</a>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!" style="color: #393f81;">Register here</a></p>
+                    <a href="#!" class="small text-muted">Conditions d'utilis.</a>
+                    <a href="#!" class="small text-muted">Privacy policy</a>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
