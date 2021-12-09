@@ -31,6 +31,7 @@ import { RegionComponent } from './composants/region/region.component';
 import { UpdateRegionComponent } from './composants/update-region/update-region.component';
 import { ConditionsDUtilisationsComponent } from './composants/supplementaire/conditions-d-utilisations/conditions-d-utilisations.component';
 import { PolitiqueComponent } from './composants/supplementaire/politique/politique.component';
+import { StatistiqueComponent } from './composants/admin/statistique/statistique.component';
 
 
 
@@ -62,6 +63,7 @@ import { PolitiqueComponent } from './composants/supplementaire/politique/politi
     UpdateRegionComponent,
     ConditionsDUtilisationsComponent,
     PolitiqueComponent,
+    StatistiqueComponent,
 
    
 
