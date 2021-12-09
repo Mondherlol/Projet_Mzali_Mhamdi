@@ -49,8 +49,12 @@ export class TopComponent implements OnInit {
         if(a.connecte){
           a.connecte=false;
           this.adminService.modifier(a.id,a).subscribe();
-          location.reload();
-
+          // location.reload();
+          for (let a of this.admin){
+            if (a.connecte){
+               a.connecte=false;
+            }
+          }
         }
       }
     }); 
