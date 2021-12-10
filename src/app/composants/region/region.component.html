@@ -15,6 +15,7 @@
                     <th>Image</th>
                     <th>Promo</th>
                     <th>Catégorie</th>
+                    <th>Nbre Visite</th>
                 </tr>
                 <tbody *ngFor="let v of voyage">
                     <tr>
@@ -26,7 +27,8 @@
                         <td *ngIf="v.Promo;else Non">Oui</td>
                         <ng-template #Non><td>Non</td></ng-template>
                         <td>{{v.categorie}}</td>
-                        
+                        <td>{{v.nbVisites}}</td>
+
                         <td><a class="btn btn-danger" (click)="supprimerVoyage(v)">Supprimer</a></td>
                         <td><a class="btn btn-success" [routerLink]="['/ModifierRegion',v.id]">Modifier</a></td>
                     </tr>

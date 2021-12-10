@@ -6,7 +6,9 @@ export class Voyage {
      public Description?:string,
      public Image?:string,
      public Promo?:boolean,
-     public categorie?:string
+     public categorie?:string,
+     public nbVisites:number=0,
+
     ){
 
     }
