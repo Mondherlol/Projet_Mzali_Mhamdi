@@ -27,7 +27,6 @@ Ajouter(){
 
   this.newRegion.nom=this.AjouterForm.controls.libelle.value;
   this.newRegion.prix=this.AjouterForm.controls.prix.value;
-  alert(this.newRegion.nom);
   // this.newRegion.activites[0]=this.RegionForm.controls.Activites1.value;
   // this.newRegion.activites[1]=this.RegionForm.controls.Activites2.value;
   // this.newRegion.activites[2]=this.RegionForm.controls.Activites3.value;
@@ -38,7 +37,7 @@ Ajouter(){
   this.newRegion=this.RegionForm.value;
 
   this.regionService.ajouterRegion(this.newRegion).subscribe(data => this.R.push(data));
-alert("La région  a bien été ajoutée !");
+alert("La région "+this.newRegion.nom+" a bien été ajoutée !");
 }
 onSubmit(){
   // console.log(this.AjouterForm.value);

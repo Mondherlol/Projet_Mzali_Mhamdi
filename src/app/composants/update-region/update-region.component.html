@@ -133,17 +133,17 @@
 
 
 <div class="container">
-      <div formArrayName="activites" class="row" >
-        <div class="col-md-2">
+      <div  class="row" >
+        <div class="col-md-2" formArrayName="activites">
         Liste des activites
         <div *ngFor="let a of activites.controls;let i=index">
-            <input type="text" [formControlName]=" i" />
+            <input type="text" [formControlName]=" i"  />
         </div>
       </div>
         <div formArrayName="activitesPrix" class="col-md-2">
           Liste des prix des activités
           <div *ngFor="let p of activitesPrix.controls;let i=index">
-              <input type="text" [formControlName]=" i" />
+              <input type="number" [formControlName]=" i" />
           </div>
 
       </div>
@@ -152,11 +152,21 @@
     <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouter()"> <br>
 
   </div>
+  <!-- Liste des activites
+  <div *ngFor="let a of newRegion.activites; let i=index">
+    <input type="text" [value]="a"  />
+
+  </div>
+  Liste des prix des activités 
+  <div *ngFor="let a of newRegion.activitesPrix; let i=index">
+    <input type="text" [value]="a"  />
+
+  </div> -->
       <!-- FIN -->
     </form>
       <div class="mt-2">
         <!-- <button type="submit" class="btn btn-success">Ajouter</button> -->
-        <input type="button" class="btn btn-success" value="Ajouter"  (click)="onModifier()">
+        <input type="button" class="btn btn-success" value="Modifier"  (click)="onModifier()">
         <button type="reset" class="btn btn-danger">Reset</button>
       </div>
  
