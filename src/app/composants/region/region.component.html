@@ -1,4 +1,3 @@
-
 <br>
 <br>
 
@@ -25,14 +24,16 @@
                         <td width="30%">{{v.Description}}</td>
                         <td>{{v.Image}}</td>
                         <td *ngIf="v.Promo;else Non">Oui</td>
-                        <ng-template #Non><td>Non</td></ng-template>
+                        <ng-template #Non>
+                            <td>Non</td>
+                        </ng-template>
                         <td>{{v.categorie}}</td>
                         <td>{{v.nbVisites}}</td>
 
                         <td><a class="btn btn-danger" (click)="supprimerVoyage(v)">Supprimer</a></td>
                         <td><a class="btn btn-success" [routerLink]="['/ModifierRegion',v.id]">Modifier</a></td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
@@ -41,8 +42,5 @@
 
 
 
-    
+
 <!-- <app-add-region></app-add-region> -->
-
-
-
