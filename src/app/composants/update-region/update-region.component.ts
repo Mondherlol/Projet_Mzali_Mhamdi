@@ -26,9 +26,13 @@ RegionForm:FormGroup;
 
  
   onModifier(){
-    this.voyageService.modifier(this.activatedRoute.snapshot.params.id, this.VoyageForm.value).subscribe();
-    
-               
+    this.voyageService.modifier(this.activatedRoute.snapshot.params.id, this.VoyageForm.value).subscribe();  
+    this.newRegion.nom=this.VoyageForm.controls.libelle.value;
+    this.newRegion.prix=this.VoyageForm.controls.prix.value;
+    this.newRegion=this.RegionForm.value;
+    this.regionService.modifier(this.activatedRoute.snapshot.params.id, this.newRegion).subscribe();  
+    alert("La région "+this.newRegion.nom+" a bien été modifiée !");
+
   }
 test(){
   console.log(this.VoyageForm.value);
@@ -38,13 +42,13 @@ test(){
 //   this.customer=c;
 //   this.complexForm.get("name").setValue(c.name,{onlySelf:true});
 // }
+
  newV(){
   let V=this.newVoyage;
   return V.libelle;
 }
 public get activites(){
   return this.RegionForm.get('activites') as FormArray;
-
 }
 public get activitesPrix(){
   return this.RegionForm.get('activitesPrix') as FormArray;
@@ -57,8 +61,6 @@ onAjouter(){
 }  
 onAjouterPrix(){
   this.activitesPrix.push(this.fb.control(''));
-  
-
 }
 
   ngOnInit(): void {
@@ -78,10 +80,13 @@ onAjouterPrix(){
       prix:data.prix,
       Description:data.Description,
       Image:data.Image,
-      categorie:data.categorie
+      categorie:data.categorie,
+      nbVisite:data.nbVisites,
+
    })   );
+   this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.newRegion=data);
 // this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(dataR=>this.RegionForm.controls['DescriptionH'].setValue(dataR.DescriptionH));
-   this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.RegionForm.patchValue({
+   this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>{this.RegionForm.patchValue({
     DescriptionH:data.DescriptionH,
     DescriptionDetaillee:data.DescriptionDetaillee,
     img:data.img,
@@ -95,9 +100,21 @@ onAjouterPrix(){
     AubergePrix:data.AubergePrix,
     AubergeDescription:data.AubergeDescription,
     AubergePromo:data.AubergePromo,
-    activites:data.activites,
-    activitesPrix:data.activitesPrix,
-   }));
+    // activites:data.activites,
+
+    // activitesPrix:data.activitesPrix,
+   }),
+  
+
+   data.activitesPrix.forEach(p => {
+    this.activitesPrix.push(this.fb.control(p));
+   });
+
+   data.activites.forEach(a => {
+    this.activites.push(this.fb.control(a));
+
+   });
+  });
    
     this.VoyageForm = this.fb.group({
 
@@ -107,7 +124,8 @@ onAjouterPrix(){
            Description:[],
            Image:[],
            categorie:[],
-          
+           NbVisite:[],
+
       
       
           })
