@@ -147,7 +147,12 @@
           </div>
 
       </div>
-
+      <div class="col-md-2">
+        <br>
+        <div *ngFor="let a of activites.controls;let i=index">
+          <input type="button" value="supprimer" (click)="supprimerActivite(i)">
+        </div>
+        </div>
     </div>
     <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouter()"> <br>
 

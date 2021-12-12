@@ -1,4 +1,4 @@
-<div style="display: block; width: 500px;">
+<div style="display: block; width: 500px;" *ngIf=" Verif()">
     <canvas mdbChart
         [chartType]="chartType"
         [datasets]="chartDatasets"
@@ -11,10 +11,8 @@
     </canvas>
   </div>
 
-
-<div id="test" style="height: 500px; background-color: pink;">
-
-</div>
-
-
-  
+  {{Touristique}}
+  {{Historique}}
+  {{Paradisiaque}}
+  {{Traditionnelle}}
+<button (click)="Verif()">Verif</button>

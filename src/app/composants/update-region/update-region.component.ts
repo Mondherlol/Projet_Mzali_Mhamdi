@@ -26,6 +26,9 @@ RegionForm:FormGroup;
 
  
   onModifier(){
+    // alert(this.VoyageForm.controls.nbVisites);
+    // this.newVoyage=this.VoyageForm.value;
+    // this.voyageService.getVoyageById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.newVoyage.nbVisites=data.nbVisites);
     this.voyageService.modifier(this.activatedRoute.snapshot.params.id, this.VoyageForm.value).subscribe();  
 
     this.newRegion=this.RegionForm.value;
@@ -61,6 +64,15 @@ onAjouter(){
   this.onAjouterPrix();
 
 }  
+supprimerActivite(i:number){
+  // alert(this.fb.control(activites[i]));
+  // this.V.splice()
+
+  // this.activites.split(this.fb.control(''));
+  this.activites.removeAt(i);
+  this.activitesPrix.removeAt(i);
+
+  }
 onAjouterPrix(){
   this.activitesPrix.push(this.fb.control(''));
 }
@@ -83,7 +95,7 @@ onAjouterPrix(){
       Description:data.Description,
       Image:data.Image,
       categorie:data.categorie,
-      nbVisite:data.nbVisites,
+      nbVisites:data.nbVisites,
 
    })   );
    this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>this.newRegion=data);
@@ -126,7 +138,7 @@ onAjouterPrix(){
            Description:[],
            Image:[],
            categorie:[],
-           NbVisite:[],
+           nbVisites:[],
 
       
       

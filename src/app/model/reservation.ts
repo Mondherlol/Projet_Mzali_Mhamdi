@@ -11,7 +11,6 @@ export class Reservation {
     public facture?:number,
     public numeroC?:number,
     public mailC?:string,
-    public nomPrenomC?:string,
 
   ){}
 }
