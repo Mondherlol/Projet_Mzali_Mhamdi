@@ -1,6 +1,8 @@
 <br>
-<br>
-
+<br><br>
+<h1 class="text-center">
+    Liste des Régions
+  </h1>
 
 <div class="container">
     <div class="card shadow mb-4">
@@ -9,7 +11,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Libelle</th>
-                    <th>Prix</th>
+                  
                     <th>Description</th>
                     <th>Image</th>
                     <th>Promo</th>
@@ -20,7 +22,7 @@
                     <tr>
                         <td>{{v.id}}</td>
                         <td>{{v.libelle}}</td>
-                        <td>{{v.prix}}</td>
+                   
                         <td width="30%">{{v.Description}}</td>
                         <td>{{v.Image}}</td>
                         <td *ngIf="v.Promo;else Non">Oui</td>

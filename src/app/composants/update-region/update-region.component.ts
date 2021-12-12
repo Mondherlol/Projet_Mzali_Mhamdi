@@ -34,7 +34,6 @@ RegionForm:FormGroup;
     this.newRegion=this.RegionForm.value;
     this.newRegion.nom=this.VoyageForm.controls.libelle.value;
     this.newRegion.prix=this.VoyageForm.controls.prix.value;
-    alert(this.newRegion.nom);
     this.regionService.modifier(this.activatedRoute.snapshot.params.id, this.newRegion).subscribe();  
     alert("La région "+this.newRegion.nom+" a bien été modifiée !");
 

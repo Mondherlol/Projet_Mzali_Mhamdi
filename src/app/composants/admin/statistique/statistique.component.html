@@ -1,7 +1,5 @@
-<div style="display: block; width: 500px" *ngIf="Verif()">
+<h1 style="display: block; align-content: center; margin:auto; width: 500px;">Statistiques de visites par catégories</h1>
+<div style="display: block; width: 500px; align-content: center; margin:auto;" *ngIf="Verif()">
     <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
   </canvas>
 </div>
-
-{{ Touristique }} {{ Historique }} {{ Paradisiaque }} {{ Traditionnelle }}
-<button (click)="Verif()">Verif</button>

@@ -40,7 +40,7 @@ Ajouter(){
   this.newRegion=this.RegionForm.value;
 
   this.regionService.ajouterRegion(this.newRegion).subscribe(data => this.R.push(data));
-alert("La région "+this.newRegion.nom+" a bien été ajoutée !");
+alert("La région a bien été ajoutée !");
 
 this.router.navigate(['/admin']);
 
@@ -49,7 +49,6 @@ onSubmit(){
   // console.log(this.AjouterForm.value);
   // this.newVoyage=this.AjouterForm.value;
   // console.log(this.newVoyage);
-  alert("Test");
 //  this.voyageService.ajouterVoyage(this.AjouterForm.value).subscribe( data => this.V.push(data) );
 
 
@@ -95,11 +94,11 @@ public get activitesPrix(){
     this.AjouterForm = this.fb.group({
 
 //VOYAGE
-     libelle:['sdfsdf'],
-     prix:[50],
-     Description:['sdfsdf'],
-     Image:['/assets/Kansai.jpg'],
-     categorie:['Historique'],
+     libelle:[''],
+     prix:[],
+     Description:[''],
+     Image:[''],
+     categorie:[''],
     
 
 
@@ -107,9 +106,9 @@ public get activitesPrix(){
     this.RegionForm = this.fb.group({
 //REGION
 
-DescriptionH:['zeezr'],
-DescriptionDetaillee:['zerzer'],
-img:['/assets/Kansai.jpg'],
+DescriptionH:[''],
+DescriptionDetaillee:[''],
+img:[''],
 // Activites1:['zerze'],
 // Activites1Prix:[50],
 // Activites2:['erezr'],
@@ -119,16 +118,16 @@ img:['/assets/Kansai.jpg'],
 activites:this.fb.array(['']),
 activitesPrix:this.fb.array(['']),
 
-HotelNom:['sdfdsf'],
-HotelImage:['fsdsd'],
-HotelPrix:[25],
+HotelNom:[''],
+HotelImage:[''],
+HotelPrix:[],
 HotelPromo:[0],
-HotelDescription:['sdfds'],
-AubergeNom:['sdfds'],
-AubergeImage:['sdfds'],
-AubergePrix:[50],
-AubergeDescription:['dsfsdf'],
-AubergePromo:[10],
+HotelDescription:[''],
+AubergeNom:[''],
+AubergeImage:[''],
+AubergePrix:[],
+AubergeDescription:[''],
+AubergePromo:[0],
     })
 
     
