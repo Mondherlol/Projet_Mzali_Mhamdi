@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Region } from 'src/app/model/region';
 import { RegionService } from 'src/app/services/region.service';
 import { FormBuilder, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-reservation',
@@ -115,6 +116,7 @@ calculerEcart(){
   return diffDays;
   
 }
+
   onSubmit(){
  
     var date1:any = new Date(this.ReserverForm.controls.dateDebut.value);

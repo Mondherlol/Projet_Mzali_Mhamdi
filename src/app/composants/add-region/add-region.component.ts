@@ -4,6 +4,8 @@ import { Region } from 'src/app/model/region';
 import { Voyage } from 'src/app/model/voyage';
 import { VoyageService } from 'src/app/services/voyage.service';
 import { FormArray, FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-region',
@@ -19,11 +21,12 @@ export class AddRegionComponent implements OnInit {
   newVoyage=new Voyage();
   id:number=0;
   msg : string;
-  constructor(private regionService:RegionService,private voyageService:VoyageService,private fb:FormBuilder) { }
+  constructor(private regionService:RegionService,private voyageService:VoyageService,private fb:FormBuilder,private router: Router) { }
 
 Ajouter(){
-  
-  this.voyageService.ajouterVoyage(this.AjouterForm.value).subscribe( data => this.V.push(data) );
+  this.newVoyage=this.AjouterForm.value;
+  this.newVoyage.nbVisites=0;
+  this.voyageService.ajouterVoyage(this.newVoyage).subscribe( data => this.V.push(data) );
 
   this.newRegion.nom=this.AjouterForm.controls.libelle.value;
   this.newRegion.prix=this.AjouterForm.controls.prix.value;
@@ -38,6 +41,8 @@ Ajouter(){
 
   this.regionService.ajouterRegion(this.newRegion).subscribe(data => this.R.push(data));
 alert("La région "+this.newRegion.nom+" a bien été ajoutée !");
+this.router.navigate(['/admin']);
+
 }
 onSubmit(){
   // console.log(this.AjouterForm.value);
@@ -58,6 +63,15 @@ onSubmit(){
 // this.newRegion.id=this.newVoyage.id;  
 // this.regionService.ajouterRegion(this.newRegion).subscribe( dataR =>this.R );
 }
+supprimerActivite(i:number){
+  // alert(this.fb.control(activites[i]));
+  // this.V.splice()
+
+  // this.activites.split(this.fb.control(''));
+  this.activites.removeAt(i);
+  this.activitesPrix.removeAt(i);
+
+  }
 onAjouter(){
   this.activites.push(this.fb.control(''));
   this.onAjouterPrix();
