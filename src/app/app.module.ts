@@ -11,7 +11,7 @@ import { AccueilComponent } from './composants/accueil/accueil.component';
 import { FooterComponent } from './composants/accueil/footer/footer.component';
 import { TopComponent } from './composants/accueil/top/top.component';
 import { CarouselComponent } from './composants//accueil/carousel/carousel.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReservationComponent } from './composants/reservation/reservation.component';
 import { ListeRegionsComponent } from './composants/accueil/liste-regions/liste-regions.component';
 import { FeaturesComponent } from './composants/accueil/features/features.component';

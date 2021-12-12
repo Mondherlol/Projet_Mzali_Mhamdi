@@ -124,4 +124,3 @@ if(this.chartDatasets[0].data[0]!=0){
 
 
 }
-

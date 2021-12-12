@@ -45,7 +45,7 @@ connecter ( ad:string, mdp:string){
       this.adminC.connecte=true;
       this.adminService.modifier(this.adminC.id,this.adminC ).subscribe(data => console.log(data));
       this.connexion=true;
-
+      localStorage.setItem('isConnected','true');
       this.router.navigate(['/admin']);
     }
   }
