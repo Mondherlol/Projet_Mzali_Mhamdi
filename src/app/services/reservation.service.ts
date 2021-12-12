@@ -11,6 +11,8 @@ export class ReservationService {
   ajouterReservation(reservation:Reservation):Observable<Reservation>{
     return this.http.post<Reservation>(URL, reservation);
   }
-
+  getReservation():Observable<Reservation[]>{
+    return this.http.get<Reservation[]>(URL);
+    }
   constructor(private http:HttpClient) { }
 }

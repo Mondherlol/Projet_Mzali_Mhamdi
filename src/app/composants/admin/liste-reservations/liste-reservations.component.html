@@ -1,0 +1,46 @@
+
+<br>
+<br>
+
+
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Destination</th>
+                    <th>Date Début</th>
+                    <th>Date Fin</th>
+                    <th>Activites</th>
+                    <th>Nbr Adultes</th>
+                    <th>Nbr Enfants</th>
+                    <th>Mail</th>
+                    <th>Numero</th>
+                    <th>Facture</th>
+                </tr>
+             
+                <tbody *ngFor="let r of reservations">
+                    <tr>
+                        <td>{{r.destination}}</td>
+                        <td>{{r.dateDebut}}</td>
+                        <td>{{r.dateFin}}</td>
+                        <td>
+                            <span *ngFor="let a of r.activitesChoisi">
+                                {{a}}
+                                    </span>
+                        </td>
+                        <td>{{r.nbrAdulte}}</td>
+                        <td>{{r.nbrEnfants}}</td>
+                        <td>{{r.mailC}}</td>
+                        <td>{{r.numeroC}}</td>
+                        <td>{{r.facture|prixDT}}</td>
+                     
+                       
+                       
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
