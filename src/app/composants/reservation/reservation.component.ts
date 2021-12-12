@@ -141,10 +141,15 @@ calculerEcart(){
     if(diffDays<2){
       alert("Votre date de retour est incorrecte");
     }
-    console.log(diffDays);
-    // this.Reserver=new Reservation;
+    // console.log(diffDays);
+    // // this.Reserver=new Reservation;
     this.Reserver=this.ReserverForm.value;
-
+    this.Reserver.destination=this.Region.nom;
+    this.Reserver.hotel=this.Hotel;
+    this.Reserver.facture=this.prix;
+    console.log(this.Reserver);
+    this.reservationService.ajouterReservation(this.Reserver).subscribe();
+    alert("Votre Réservation a bien été effectuée. Nous vous enverrons un mail de confirmation.");
 
   }
   public get activites(){

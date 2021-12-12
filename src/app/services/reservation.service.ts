@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Admin } from '../model/admin';
 import { HttpClient } from '@angular/common/http';
 import { Reservation } from '../model/reservation';
-const URL = 'http://localhost:3000/Admin';
+const URL = 'http://localhost:3000/Reservation';
 
 @Injectable({
   providedIn: 'root'
