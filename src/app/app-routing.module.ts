@@ -17,17 +17,22 @@ import { RegionComponent } from './composants/region/region.component';
 import { UpdateRegionComponent } from './composants/update-region/update-region.component';
 import { ConditionsDUtilisationsComponent } from './composants/supplementaire/conditions-d-utilisations/conditions-d-utilisations.component';
 import { PolitiqueComponent } from './composants/supplementaire/politique/politique.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  
   { path: 'signup', component: SignupComponent },
   { path: 'accueil', component: AccueilComponent },  
   { path : 'reservation', component : ReservationComponent },
   { path : 'rechercher', component : RechercherComponent},
   { path : 'rechercher/:motcle',component:RechercherComponent},
   {path : 'aboutus', component:AboutusComponent},
-  {path : 'admin', component:AdminComponent},
+  {path : 'admin', 
+  component:AdminComponent,
+  canActivate:[AuthGuard]
+   },
+   { path: 'login', component: LoginComponent },
   {path : 'Region',component:ListeRegionsComponent},
   {path : 'addRegion',component:AddRegionComponent},
   {path : 'ModifierRegion/:id',component: UpdateRegionComponent},
