@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Region } from 'src/app/model/region';
 import { RegionService } from 'src/app/services/region.service';
-import { FormBuilder, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
+import { Reservation } from 'src/app/model/reservation';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -12,11 +14,10 @@ import { TestBed } from '@angular/core/testing';
 })
 export class ReservationComponent implements OnInit {
   Region: Region;
- 
+  Reserver:Reservation=new Reservation;
   ReserverForm:FormGroup= new FormGroup({});
 
-  constructor(private regionService:RegionService,private activatedRoute:ActivatedRoute,private fb:FormBuilder
-    ) { }
+  constructor(private regionService:RegionService,private activatedRoute:ActivatedRoute,private fb:FormBuilder,private reservationService:ReservationService) { }
   id : number;
   verifier(){
     alert("Etes vous sûr ?");
@@ -69,27 +70,42 @@ calculerPrix(){
     }
 
   }
+  for (let i = 0; i < this.activites.length; i++) {
+   if (this.activites.controls[i].value){
 
- if (this.ReserverForm.controls.activites1.value){
-   this.prix=this.prix+this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrAdulte.value;
-   this.prix=this.prix+(this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrEnfants.value)/2;
- }
- if (this.ReserverForm.controls.activites2.value){
-  this.prix=this.prix+this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrAdulte.value;
-  this.prix=this.prix+(this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrEnfants.value)/2;
-}
-if (this.ReserverForm.controls.activites3.value){
-  this.prix=this.prix+this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrAdulte.value;
-  this.prix=this.prix+(this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrEnfants.value)/2;
-}
+     this.prix=this.prix+this.activitesPrix.controls[i].value*this.ReserverForm.controls.nbrAdulte.value;
+    
+     this.prix=this.prix+(this.activitesPrix.controls[i].value*this.ReserverForm.controls.nbrEnfants.value)/2;
+   }
+    
+  }
+// for(let a of this.activites.controls){
+
+//   if (a){
+//     this.prix=this.prix+this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrAdulte.value;
+//     //    this.prix=this.prix+(this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrEnfants.value)/2;
+//   }
+// }
+//  if (this.ReserverForm.controls.activites1.value){
+//    this.prix=this.prix+this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrAdulte.value;
+//    this.prix=this.prix+(this.Region.activitesPrix[0]*this.ReserverForm.controls.nbrEnfants.value)/2;
+//  }
+//  if (this.ReserverForm.controls.activites2.value){
+//   this.prix=this.prix+this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrAdulte.value;
+//   this.prix=this.prix+(this.Region.activitesPrix[1]*this.ReserverForm.controls.nbrEnfants.value)/2;
+// }
+// if (this.ReserverForm.controls.activites3.value){
+//   this.prix=this.prix+this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrAdulte.value;
+//   this.prix=this.prix+(this.Region.activitesPrix[2]*this.ReserverForm.controls.nbrEnfants.value)/2;
+// }
 //  if (this.ReserverForm.controls.dateDebut.value)
  if (this.prix<0){
    this.prix=0;
  }
   // Prix Billet
- this.prix=this.prix+(418*this.ReserverForm.controls.nbrAdulte.value)+(418*this.ReserverForm.controls.nbrEnfants.value);
+//  this.prix=this.prix+(418*this.ReserverForm.controls.nbrAdulte.value)+(418*this.ReserverForm.controls.nbrEnfants.value);
 //  Prix Bénéfice
- this.prix=this.prix - ( (10/100) * this.prix);
+//  this.prix=this.prix - ( (10/100) * this.prix);
   
 }
 calculerPourcentHotel(){
@@ -126,6 +142,19 @@ calculerEcart(){
       alert("Votre date de retour est incorrecte");
     }
     console.log(diffDays);
+    // this.Reserver=new Reservation;
+    this.Reserver=this.ReserverForm.value;
+
+
+  }
+  public get activites(){
+    return this.ReserverForm.get('activites') as FormArray;
+  }
+  public get activitesPrix(){
+    return this.ReserverForm.get('activitesPrix') as FormArray;
+  }
+  public get listeActivites(){
+    return this.ReserverForm.get('listeActivites') as FormArray;
   }
   public get mailC()
   { return this.ReserverForm.get('mailC'); }
@@ -138,13 +167,33 @@ calculerEcart(){
       dateFin:[     this.jourRetour        ,Validators.required],
       nbrAdulte:[1],
       nbrEnfants:[0],
-      activites1:false,
-      activites2:false,
-      activites3:false,
+      // activites1:false,
+      // activites2:false,
+      // activites3:false,
+      activites:this.fb.array([]),
+      activitesPrix:this.fb.array([]),
+      listeActivites:this.fb.array([]),
+      
       mailC:['',[Validators.required, Validators.email]],
       numeroC:[,[Validators.required,Validators.minLength(8),Validators.pattern("^[0-9]*$")]],
 
     })
+
+
+  this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>{
+ data.activites.forEach(a=>{
+   this.activites.push(this.fb.control(a));
+
+ }
+  );
+  data.activitesPrix.forEach(p => {
+        this.activitesPrix.push(this.fb.control(p));
+       });
+       data.activites.forEach(p => {
+        this.listeActivites.push(this.fb.control(p));
+        console.log(this.listeActivites.controls);
+       });
+  });
     this.id=this.activatedRoute.snapshot.params['id'];
 
    this.regionService.getRegionById(this.id).subscribe(dataRI=>this.Region=dataRI);

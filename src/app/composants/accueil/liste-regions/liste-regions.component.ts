@@ -36,11 +36,6 @@ stat(id:number){
   this.voyageService.getVoyage().subscribe(data=>{
     for(let r of data){
       if(r.id==id){
-        if(r.nbVisites==NaN){
-          r.nbVisites=0;
-          this.voyageService.modifier(r.id,r).subscribe();
-
-        }
         r.nbVisites++;
         this.voyageService.modifier(r.id,r).subscribe();
       }
