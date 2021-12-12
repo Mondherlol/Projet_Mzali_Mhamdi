@@ -1,6 +1,7 @@
 
 export class Reservation {
   constructor(
+    public id?:number,
     public destination?:string,
     public dateDebut?:Date,
     public dateFin?:Date,

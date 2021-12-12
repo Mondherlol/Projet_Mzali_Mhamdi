@@ -18,7 +18,6 @@ export class Region {
         public AubergeImage?:string,
         public AubergeDescription?:string,
         public AubergePromo?:number,
-        public nbVisites:number=0,
      
     ){}
 }

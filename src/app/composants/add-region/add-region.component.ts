@@ -28,7 +28,7 @@ Ajouter(){
   this.newVoyage.nbVisites=0;
   this.voyageService.ajouterVoyage(this.newVoyage).subscribe( data => this.V.push(data) );
 
-  this.newRegion.nom=this.AjouterForm.controls.libelle.value;
+  this.newRegion.nom=this.newVoyage.libelle;
   this.newRegion.prix=this.AjouterForm.controls.prix.value;
   // this.newRegion.activites[0]=this.RegionForm.controls.Activites1.value;
   // this.newRegion.activites[1]=this.RegionForm.controls.Activites2.value;

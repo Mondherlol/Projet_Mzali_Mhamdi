@@ -10,7 +10,15 @@ import { ReservationService } from 'src/app/services/reservation.service';
 export class ListeReservationsComponent implements OnInit {
   reservations:Reservation[];
   constructor(private reservationService:ReservationService) { }
+valider(id:number){
+ 
+  let conf=confirm("Valider cette réservation ?");
+if (conf)
 
+this.reservationService.supprimerReservation(id).subscribe(
+  ()=> {this.reservations = this.reservations.filter(l => l.id != id);}
+)
+}
   ngOnInit(): void {
     this.reservationService.getReservation().subscribe(data=>this.reservations=data);
   }

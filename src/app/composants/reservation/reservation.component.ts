@@ -143,14 +143,36 @@ calculerEcart(){
     }
     // console.log(diffDays);
     // // this.Reserver=new Reservation;
-    this.Reserver=this.ReserverForm.value;
+    // this.Reserver=this.ReserverForm.value;
     this.Reserver.destination=this.Region.nom;
     this.Reserver.hotel=this.Hotel;
     this.Reserver.facture=this.prix;
+    this.Reserver.dateDebut=this.ReserverForm.controls.dateDebut.value;
+    this.Reserver.dateFin=this.ReserverForm.controls.dateFin.value;
+    this.Reserver.nbrAdulte=this.ReserverForm.controls.nbrAdulte.value;
+    this.Reserver.nbrEnfants=this.ReserverForm.controls.nbrEnfants.value;
+    this.Reserver.mailC=this.ReserverForm.controls.mailC.value;
+    this.Reserver.numeroC=this.ReserverForm.controls.numeroC.value;
     console.log(this.Reserver);
     this.reservationService.ajouterReservation(this.Reserver).subscribe();
     alert("Votre Réservation a bien été effectuée. Nous vous enverrons un mail de confirmation.");
-
+    // [
+    //   {
+    //     "destination": "Tunisie",
+    //     "dateDebut": "10/10/2021",
+    //     "dateFin": "11/11/2021",
+    //     "activitesChoisi": [
+    //       "Test",
+    //       "Test2"
+    //     ],
+    //     "nbrAdulte": 30,
+    //     "nbrEnfants": 14,
+    //     "hotel": true,
+    //     "facture": 54,
+    //     "numeroC": 5545455,
+    //     "mailC": "test@gmail.com"
+    //   }
+    // ]
   }
   public get activites(){
     return this.ReserverForm.get('activites') as FormArray;
@@ -187,7 +209,7 @@ calculerEcart(){
 
   this.regionService.getRegionById(this.activatedRoute.snapshot.params.id).subscribe(data=>{
  data.activites.forEach(a=>{
-   this.activites.push(this.fb.control(a));
+   this.activites.push(this.fb.control(false));
 
  }
   );
@@ -195,8 +217,9 @@ calculerEcart(){
         this.activitesPrix.push(this.fb.control(p));
        });
        data.activites.forEach(p => {
+        
         this.listeActivites.push(this.fb.control(p));
-        console.log(this.listeActivites.controls);
+
        });
   });
     this.id=this.activatedRoute.snapshot.params['id'];

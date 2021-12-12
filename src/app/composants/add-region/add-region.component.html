@@ -24,7 +24,7 @@
             <h2>Ajouter une destination</h2>
           </div>
           <form [formGroup]="AjouterForm" >
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-8 col-md-8 col-lg-8">
               <label>Libelle Voyage</label>
               <input
                 type="text"
@@ -32,7 +32,7 @@
                 class="form-control"
               />
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-8 col-md-8 col-lg-8">
               <label>Prix Region</label>
               <input
                 type="number"
@@ -40,21 +40,22 @@
                 class="form-control"
               />
             </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
+            <div class="col-sm-8 col-md-8 col-lg-8">
               <label>Description</label>
-              <input
+              <textarea
+              
                 type="text"
                 formControlName="Description"
                 class="form-control"
-              />
+              > </textarea>
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-8 col-md-8 col-lg-8">
               <label>Image URL</label>
               <input type="text" formControlName="Image" class="form-control" />
             </div>
 
           
-            <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="col-sm-8 col-md-8 col-lg-8">
               <label>Categorie</label>
               <select formControlName="categorie" class="form-control">
                 <option value="Traditionnelle">Traditionnelle</option>
@@ -69,20 +70,20 @@
           <form [formGroup]="RegionForm">
             <!-- ID jusqua ACTIVITES -->
             <div class="col-sm-8 col-md-8 col-lg-8">
-              <label>DescriptionH</label>
-              <input
+              <label>Description Region</label>
+              <textarea
                 type="text"
                 formControlName="DescriptionH"
                 class="form-control"
-              />
+              ></textarea>
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
               <label> DescriptionDetaillee</label>
-              <input
+              <textarea
                 type="text"
                 formControlName="DescriptionDetaillee"
                 class="form-control"
-              />
+              ></textarea>
             </div>
 
             <div class="col-sm-8 col-md-8 col-lg-8">
@@ -91,67 +92,70 @@
             </div>
 
             <!-- HOTEL NOM JUSQUA AUBERGE -->
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>HotelNom</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Hotel Nom</label>
                 <input type="text" formControlName="HotelNom" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>HotelImage</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Hotel Image</label>
                 <input type="text" formControlName="HotelImage" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>HotelPrix</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Hotel Prix</label>
                 <input type="number" formControlName="HotelPrix" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>HotelPromo</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Hotel Promo</label>
                 <input type="number" formControlName="HotelPromo" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>HotelDescription</label>
-                <input type="text" formControlName="HotelDescription" class="form-control" />
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Hotel Description</label>
+                <textarea formControlName="HotelDescription"
+                class="form-control" >
+
+                </textarea>
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>AubergeNom</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Auberge Nom</label>
                 <input type="text" formControlName="AubergeNom" class="form-control" />
             </div>
 
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>AubergeImage</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Auberge Image</label>
                 <input type="text" formControlName="AubergeImage" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>AubergePrix</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Auberge Prix</label>
                 <input type="number" formControlName="AubergePrix" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>AubergePromo</label>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Auberge Promo</label>
                 <input type="number" formControlName="AubergePromo" class="form-control" />
             </div>
 
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <label>AubergeDescription</label>
-                <input type="text" formControlName="AubergeDescription" class="form-control" />
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <label>Auberge Description</label>
+                <textarea type="text" formControlName="AubergeDescription" class="form-control"  id="description" ></textarea>
             </div>
 
 
 <div class="container">
             <div  class="row" >
-              <div class="col-md-2" formArrayName="activites">
+              <div class="col-md-8" formArrayName="activites">
               Liste des activites
               <div *ngFor="let a of activites.controls;let i=index">
                   <input type="text" [formControlName]=" i" />
               </div>
             </div>
-              <div formArrayName="activitesPrix" class="col-md-2">
+              <div formArrayName="activitesPrix" class="col-md-8">
                 Liste des prix des activités
                 <div *ngFor="let p of activitesPrix.controls;let i=index">
                     <input type="text" [formControlName]=" i" />
@@ -159,7 +163,7 @@
                 <!-- <input type="button" value="+" class="btn btn-secondary btn-sm" (click)="onAjouterPrix()"> <br> -->
 
             </div>
-            <div class="col-md-2">
+            <div class="col-md-8">
               <br>
               <div *ngFor="let a of activites.controls;let i=index">
                 <input type="button" value="supprimer" (click)="supprimerActivite(i)">
@@ -171,7 +175,7 @@
         </div>
             <!-- FIN -->
           </form>
-            <div class="mt-2">
+            <div class="mt-8">
               <!-- <button type="submit" class="btn btn-success">Ajouter</button> -->
               <input type="button" class="btn btn-success" value="Ajouter" (click)="Ajouter()">
               <button type="reset" class="btn btn-danger">Reset</button>

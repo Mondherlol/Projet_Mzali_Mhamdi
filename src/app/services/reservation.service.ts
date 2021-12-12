@@ -14,5 +14,10 @@ export class ReservationService {
   getReservation():Observable<Reservation[]>{
     return this.http.get<Reservation[]>(URL);
     }
+    supprimerReservation( id:number)
+    {
+      return this.http.delete(URL+"/"+id);
+    
+    }
   constructor(private http:HttpClient) { }
 }
