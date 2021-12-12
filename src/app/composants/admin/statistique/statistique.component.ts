@@ -62,6 +62,8 @@ export class StatistiqueComponent implements OnInit {
     );
 
   }
+  public chartType: string = 'doughnut';
+//   async test(C:string,pos:number){
 //   let t=0;
 //   this.voyageService.getVoyage().subscribe(data=>{
 //     data.forEach(d => {
@@ -102,6 +104,7 @@ if(this.chartDatasets[0].data[0]!=0){
 }
 
 
+  public chartLabels: Array<any> = ['Touristique', 'Historique', 'Traditionnelle', 'Paradisiaque'];
 
   public chartColors: Array<any> = [
     {
@@ -121,4 +124,3 @@ if(this.chartDatasets[0].data[0]!=0){
 
 
 }
-

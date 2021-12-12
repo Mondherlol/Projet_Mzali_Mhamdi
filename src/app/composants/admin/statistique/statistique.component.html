@@ -1,7 +1,7 @@
-<div style="display: block; width: 500px;" *ngIf=" Verif()">
+<div style="display: block; width: 500px" *ngIf="Verif()">
     <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-    </canvas>
+  </canvas>
 </div>
 
-{{Touristique}} {{Historique}} {{Paradisiaque}} {{Traditionnelle}}
+{{ Touristique }} {{ Historique }} {{ Paradisiaque }} {{ Traditionnelle }}
 <button (click)="Verif()">Verif</button>
