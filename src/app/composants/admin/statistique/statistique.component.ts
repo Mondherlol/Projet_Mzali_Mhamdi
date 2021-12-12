@@ -17,7 +17,7 @@ export class StatistiqueComponent implements OnInit {
   Paradisiaque:number=0;
   Traditionnelle:number=0;
   chartDatasets: Array<any> = [
-    { data:  [this.Touristique, this.Historique, this.Traditionnelle, this.Paradisiaque], label: 'My First dataset' }
+    { data:  [this.Touristique, this.Historique, this.Traditionnelle, this.Paradisiaque], label: 'Statistiques par catégories' }
   ];
   constructor(private voyageService:VoyageService){
 

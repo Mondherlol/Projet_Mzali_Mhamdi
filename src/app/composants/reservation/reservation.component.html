@@ -166,12 +166,16 @@
                 </div>
               </div>
               <span class="form-label">Sélectionnez vos activités :</span>
-
+<!-- 
 <input type="checkbox" (change)="calculerPrix()"  class="btn-check"[id]="Region.activites[0]" autocomplete="off" formControlName="activites1"> <label [for]="Region.activites[0]" class="btn btn-outline-danger " style="margin-bottom: 5px;">{{Region.activites[0]}}</label>
 <input type="checkbox"  (change)="calculerPrix()" class="btn-check"[id]="Region.activites[1]" autocomplete="off" formControlName="activites2"> <label [for]="Region.activites[1]" class="btn btn-outline-danger" style="margin-bottom: 5px;">{{Region.activites[1]}}</label>
-<input type="checkbox" (change)="calculerPrix()"  class="btn-check"[id]="Region.activites[2]" autocomplete="off" formControlName="activites3"> <label [for]="Region.activites[2]" class="btn btn-outline-danger" style="margin-bottom: 5px;">{{Region.activites[2]}}</label>
+<input type="checkbox" (change)="calculerPrix()"  class="btn-check"[id]="Region.activites[2]" autocomplete="off" formControlName="activites3"> <label [for]="Region.activites[2]" class="btn btn-outline-danger" style="margin-bottom: 5px;">{{Region.activites[2]}}</label> -->
 
-   
+   <div formArrayName="activites">
+  <div *ngFor="let a of activites.controls ; index as i">
+    <input type="checkbox" (change)="calculerPrix()" class="btn-check" [formControlName]="i" [id]="i" autocomplete="off"><label [for]="i" class="btn btn-outline-danger " style="margin-bottom: 5px;">{{listeActivites.controls[i].value}}</label>
+  </div>
+   </div>
             </div>
             <div class="form-group">
               <span class="form-label">Email</span>
