@@ -166,7 +166,7 @@
             <div class="col-md-8">
               <br>
               <div *ngFor="let a of activites.controls;let i=index">
-                <input type="button" value="supprimer" (click)="supprimerActivite(i)">
+                <input type="button" value="supprimer" class="btn btn-danger" (click)="supprimerActivite(i)">
               </div>
               </div>
           </div>
@@ -178,9 +178,7 @@
             <div class="mt-8">
               <!-- <button type="submit" class="btn btn-success">Ajouter</button> -->
               <input type="button" class="btn btn-success" value="Ajouter" (click)="Ajouter()">
-              <button type="reset" class="btn btn-danger">Reset</button>
             </div>
-            <h3>{{ msg }}</h3>
       
         </div>
 
@@ -193,8 +191,4 @@
     </div>
   </div>
 </div> -->
-<h1>VOYAGE FORM</h1>
-{{AjouterForm.value|json}}
-<br>
-<h1>REGION FORM</h1>
-{{RegionForm.value|json}}
+=

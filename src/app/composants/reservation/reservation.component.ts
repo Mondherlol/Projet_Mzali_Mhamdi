@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Region } from 'src/app/model/region';
 import { RegionService } from 'src/app/services/region.service';
 import { FormArray, FormBuilder, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
@@ -17,7 +17,7 @@ export class ReservationComponent implements OnInit {
   Reserver:Reservation=new Reservation;
   ReserverForm:FormGroup= new FormGroup({});
 
-  constructor(private regionService:RegionService,private activatedRoute:ActivatedRoute,private fb:FormBuilder,private reservationService:ReservationService) { }
+  constructor(private regionService:RegionService,private activatedRoute:ActivatedRoute,private fb:FormBuilder,private reservationService:ReservationService,private router:Router) { }
   id : number;
   verifier(){
     alert("Etes vous sûr ?");
@@ -156,6 +156,9 @@ calculerEcart(){
     console.log(this.Reserver);
     this.reservationService.ajouterReservation(this.Reserver).subscribe();
     alert("Votre Réservation a bien été effectuée. Nous vous enverrons un mail de confirmation.");
+    
+location.reload();
+
     // [
     //   {
     //     "destination": "Tunisie",

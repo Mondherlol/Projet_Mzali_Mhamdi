@@ -41,6 +41,7 @@ Ajouter(){
 
   this.regionService.ajouterRegion(this.newRegion).subscribe(data => this.R.push(data));
 alert("La région "+this.newRegion.nom+" a bien été ajoutée !");
+
 this.router.navigate(['/admin']);
 
 }
